@@ -22,7 +22,7 @@ void menuAdmin() {
     do {
 
 
-        printf("-------- MENU ADMINISTRADOR --------\n");
+        printf("-------- ADMINISTRADOR --------\n");
         printf("\t1 - Gerir o Catálogo de Empresas\n");
         printf("\t2 - Gerir Ramos de Atividade\n");
         printf("\t3 - Visualizar Relatórios\n");
@@ -137,7 +137,7 @@ void menuUser() {
 
     do {
 
-        printf("-------- MENU UTILIZADOR --------\n");
+        printf("-------- UTILIZADOR --------\n");
         printf("\t1 - Pesquisar empresas\n");
         printf("\t2 - Classificar Empresa\n");
         printf("\t3 - Comentar Empresa\n");
