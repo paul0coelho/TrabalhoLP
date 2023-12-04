@@ -81,7 +81,7 @@ typedef struct {
 #define COMISSOES_TXT_FILE "comissoes.txt"
 
 /**
- * @brief Funções destinadas aos vendedores
+ * @brief Funções destinadas ás empresas
  */
 
 void imprimirEmpresas(Empresa empresa);
