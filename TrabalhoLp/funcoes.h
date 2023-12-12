@@ -54,7 +54,7 @@ typedef struct {
     int NIF;
     char email[MAX_EMAIL];
     char rua[MAX_RUA];
-    char localiade[MAX_LOCALIDADE];
+    char localidade[MAX_LOCALIDADE];
     char codPostal[MAX_COD_POSTAL];
 } Empresa;
 
