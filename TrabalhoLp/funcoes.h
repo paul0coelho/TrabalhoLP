@@ -9,7 +9,7 @@
 #define FUNCOES_H
 
 /**
-    * @brief Macros usadas na gestão de Empresas 
+ * @brief Macros usadas na gestão de Empresas 
  */
 
 #define EMPRESA_NAO_EXISTE "\n------ EMPRESA INEXISTENTE ------\n\n"
@@ -46,6 +46,10 @@
 #define BARRA "----------------------------------------\n"
 
 /**
+ * @brief Macros usadas na gestão de Ramos de atividade
+ */
+
+/**
  * @brief As estruturas de dados que armazenam os dados das empresas
  */
 
@@ -56,12 +60,36 @@ typedef struct {
     char rua[MAX_RUA];
     char localidade[MAX_LOCALIDADE];
     char codPostal[MAX_COD_POSTAL];
+    int ativo;
 } Empresa;
 
 typedef struct {
     int contador, tamanho;
     Empresa *empresa;
 } Empresas;
+
+typedef struct {
+    char nome[100];
+    int ativo;
+} RamoAtividade;
+
+typedef struct {
+    int contador, tamanho;
+    RamoAtividade *ramoAtividade;
+} RamosAtividade;
+
+typedef struct {
+    char nomeUtilizador[100];
+    char nomeEmpresa[100];
+    char email[100];
+    char titulo[100];
+    char texto[500];
+} Comentario;
+
+typedef struct {
+    int contador, tamanho;
+    Comentario *comentario;
+} Comentarios;
 
 /**
  * @brief A estrutura de dados que permite formatar datas
