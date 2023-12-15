@@ -68,6 +68,10 @@ typedef struct {
     Empresa *empresa;
 } Empresas;
 
+/**
+ * @brief As estruturas de dados que armazenam os dados dos ramos de atividade
+ */
+
 typedef struct {
     char nome[100];
     int ativo;
