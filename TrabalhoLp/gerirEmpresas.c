@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "empresas.h"
+#include "gerirEmpresas.h"
 #include "input.h"
 
 /**
@@ -145,6 +145,7 @@ int registarEmpresa(Empresas *empresas) {
         lerString(empresas->empresa[empresas->contador].rua, MAX_RUA, MSG_OBTER_RUA);
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
         lerString(empresas->empresa[empresas->contador].codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
+        
         do {
             lerString(email, MAX_EMAIL, MSG_OBTER_EMAIL);
         } while (!validarEmail(email));

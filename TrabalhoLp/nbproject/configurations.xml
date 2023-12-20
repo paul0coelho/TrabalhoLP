@@ -4,11 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>comentarios.h</itemPath>
-      <itemPath>empresas.h</itemPath>
       <itemPath>funcoes.h</itemPath>
+      <itemPath>gerirComentarios.h</itemPath>
+      <itemPath>gerirEmpresas.h</itemPath>
+      <itemPath>gerirRamosAtividade.h</itemPath>
       <itemPath>input.h</itemPath>
-      <itemPath>ramosAtividade.h</itemPath>
       <itemPath>tools.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -45,21 +45,21 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="comentarios.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="empresas.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="funcoes.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="gerirComentarios.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="gerirEmpresas.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="gerirEmpresas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gerirRamosAtividade.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="input.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="ramosAtividade.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tools.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -86,21 +86,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="comentarios.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="empresas.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="funcoes.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="gerirComentarios.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="gerirEmpresas.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="gerirEmpresas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gerirRamosAtividade.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="input.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="ramosAtividade.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tools.c" ex="false" tool="0" flavor2="0">
       </item>
