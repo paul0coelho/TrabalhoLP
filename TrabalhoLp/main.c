@@ -20,8 +20,6 @@ void menuAdmin() {
     int opcao;
 
     do {
-
-
         printf("-------- ADMINISTRADOR --------\n");
         printf("\t1 - Gerir o Catálogo de Empresas\n");
         printf("\t2 - Gerir Ramos de Atividade\n");
@@ -60,7 +58,6 @@ void menuEmpresas() {
     int opcao;
 
     do {
-
         printf("-------- GESTÃO DE EMPRESAS --------\n");
         printf("\t1 - Registar empresa\n");
         printf("\t2 - Remover Empresa\n");
@@ -98,7 +95,6 @@ void menuRamosAtividade() {
     int opcao;
 
     do {
-
         printf("-------- GESTÃO DE RAMOS DE ATIVIDADE --------\n");
         printf("\t1 - Registar ramo de atividade\n");
         printf("\t2 - Remover ramo de atividade\n");
@@ -136,7 +132,6 @@ void menuUser() {
     int opcao;
 
     do {
-
         printf("-------- UTILIZADOR --------\n");
         printf("\t1 - Pesquisar empresas\n");
         printf("\t2 - Classificar Empresa\n");
@@ -175,12 +170,10 @@ void menuPrincipal() {
     int opcao;
 
     do {
-
         printf("----------- Selecione o seu perfl de utilizador -----------\n");
         printf("\t1 - Administrador\n");
         printf("\t2 - Utilizador\n");
         printf("\t0 - Sair\n");
-        //puts(BARRA);
 
         opcao = obterInt(0, 2, "\nOpção: ");
 
