@@ -29,9 +29,6 @@
 #define MAX_NIF_EMPRESA 1999999999
 #define MIN_NIF_EMPRESA 1000000000
 
-#define MSG_OBTER_EMAIL "\nInsira o email da empresa:"
-#define MAX_EMAIL 40
-
 #define MSG_OBTER_RUA "\nInsira a rua da empresa:"
 #define MAX_RUA 40
 
@@ -57,7 +54,6 @@
 typedef struct {
     char nomeEmpresa[MAX_NOME_EMPRESA];
     int NIF;
-    char email[MAX_EMAIL];
     char rua[MAX_RUA];
     char localidade[MAX_LOCALIDADE];
     char codPostal[MAX_COD_POSTAL];

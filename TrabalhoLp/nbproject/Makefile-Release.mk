@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/gerirComentarios.o \
 	${OBJECTDIR}/gerirEmpresas.o \
 	${OBJECTDIR}/input.o \
 	${OBJECTDIR}/main.o \
@@ -64,6 +65,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalholp.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalholp ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/gerirComentarios.o: gerirComentarios.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/gerirComentarios.o gerirComentarios.c
 
 ${OBJECTDIR}/gerirEmpresas.o: gerirEmpresas.c
 	${MKDIR} -p ${OBJECTDIR}

@@ -17,7 +17,6 @@ void imprimirEmpresas(Empresa empresa) {
     printf("\tRua: %s\n", empresa.rua);
     printf("\tLocalidade: %s\n", empresa.localidade);
     printf("\tCódigo Postal: %s\n", empresa.codPostal);
-    printf("\tEmail: %s\n", empresa.email);
     puts(BARRA);
 
 }
@@ -35,8 +34,6 @@ void apagarDadosEmpresas(Empresa *empresa) {
     strcpy(empresa->rua, "");
     strcpy(empresa->localidade, "");
     strcpy(empresa->codPostal, "");
-    strcpy(empresa->email, "");
-
 }
 
 /**
@@ -134,7 +131,6 @@ void libertarEmpresas(Empresas *empresas) {
  */
 int registarEmpresa(Empresas *empresas) {
     int NIFNovo;
-    char email[MAX_EMAIL];
     
     NIFNovo = obterInt(MIN_NIF_EMPRESA, MAX_NIF_EMPRESA, MSG_OBTER_NIF_EMPRESA);
 
@@ -145,12 +141,6 @@ int registarEmpresa(Empresas *empresas) {
         lerString(empresas->empresa[empresas->contador].rua, MAX_RUA, MSG_OBTER_RUA);
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
         lerString(empresas->empresa[empresas->contador].codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
-        
-        do {
-            lerString(email, MAX_EMAIL, MSG_OBTER_EMAIL);
-        } while (!validarEmail(email));
-
-        strcpy(empresas->empresa[empresas->contador].email, email);
 
         return empresas->contador++;
     }
@@ -163,17 +153,11 @@ int registarEmpresa(Empresas *empresas) {
  * @param empresa apontador para a struct Empresa
  */
 void editarEmpresa(Empresa *empresa) {
-    char email[MAX_EMAIL];
 
     lerString((*empresa).nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
     lerString((*empresa).rua, MAX_RUA, MSG_OBTER_RUA);
     lerString((*empresa).localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
     lerString((*empresa).codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
-    do {
-        lerString(email, MAX_EMAIL, MSG_OBTER_EMAIL);
-    } while (!validarEmail(email));
-
-    strcpy(empresa->email, email);
 }
 
 /**

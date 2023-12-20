@@ -18,6 +18,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>gerirComentarios.c</itemPath>
       <itemPath>gerirEmpresas.c</itemPath>
       <itemPath>input.c</itemPath>
       <itemPath>main.c</itemPath>
@@ -46,6 +47,8 @@
       <compileType>
       </compileType>
       <item path="funcoes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gerirComentarios.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="gerirComentarios.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -87,6 +90,8 @@
         </asmTool>
       </compileType>
       <item path="funcoes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gerirComentarios.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="gerirComentarios.h" ex="false" tool="3" flavor2="0">
       </item>
