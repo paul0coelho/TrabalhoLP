@@ -1,4 +1,4 @@
-build/Debug/Cygwin-Windows/gerirEmpresas.o: gerirEmpresas.c empresas.h \
- input.h
-empresas.h:
+build/Debug/Cygwin-Windows/gerirEmpresas.o: gerirEmpresas.c \
+ gerirEmpresas.h input.h
+gerirEmpresas.h:
 input.h:
