@@ -17,8 +17,8 @@
  * @brief Macros usadas na gestão de comentários 
  */
 
-#define COMENTARIO_NAO_EXISTE "\n------ COMENTÁRIO INEXISTENTE ------\n\n"
-#define COMENTARIO_EXISTE "\n------ COMENTÁRIO JÁ EXISTENTE ------\n\n"
+#define COMENTARIO_NAO_EXISTE  "\n------ COMENTÁRIO INEXISTENTE ------\n\n"
+#define COMENTARIO_EXISTE      "\n------ COMENTÁRIO JÁ EXISTENTE ------\n\n"
 #define COMENTARIO_LISTA_CHEIA "\n------ NÃO É POSSÍVEL INSERIR OUTRO COMENTÁRIO ------\n\n"
 #define COMENTARIO_LISTA_VAZIA "\n------ LISTA DE COMENTÁRIOS VAZIA ------\n\n"
 
@@ -40,8 +40,8 @@
 #define COMENTARIOS_TAM_INICIAL 2
 
 #define COMENTARIO_REGISTADO_SUCESSO "\n------ COMENTÁRIO REGISTADO COM SUCESSO ------\n\n"
-#define COMENTARIO_EDITADO_SUCESSO "\n------ COMENTÁRIO ATUALIZADO COM SUCESSO ------\n\n"
-#define COMENTARIO_REMOVIDO_SUCESSO "\n------ COMENTÁRIO REMOVIDO COM SUCESSO ------\n\n"
+#define COMENTARIO_EDITADO_SUCESSO   "\n------ COMENTÁRIO ATUALIZADO COM SUCESSO ------\n\n"
+#define COMENTARIO_REMOVIDO_SUCESSO  "\n------ COMENTÁRIO REMOVIDO COM SUCESSO ------\n\n"
 
 #define BARRA "----------------------------------------\n"
 

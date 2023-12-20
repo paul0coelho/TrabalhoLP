@@ -17,10 +17,10 @@
  * @brief Macros usadas na gestão de Empresas 
  */
 
-#define EMPRESA_NAO_EXISTE "\n------ EMPRESA INEXISTENTE ------\n\n"
-#define EMPRESA_EXISTE "\n------ EMPRESA JÁ EXISTENTE ------\n\n"
-#define EMPRESA_LISTA_CHEIA "\n------ NÃO É POSSÍVEL INSERIR OUTRA EMPRESA ------\n\n"
-#define EMPRESA_LISTA_VAZIA "\n------ LISTA DE EMPRESAS VAZIA ------\n\n"
+#define EMPRESA_NAO_EXISTE   "\n------ EMPRESA INEXISTENTE ------\n\n"
+#define EMPRESA_EXISTE       "\n------ EMPRESA JÁ EXISTENTE ------\n\n"
+#define EMPRESA_LISTA_CHEIA  "\n------ NÃO É POSSÍVEL INSERIR OUTRA EMPRESA ------\n\n"
+#define EMPRESA_LISTA_VAZIA  "\n------ LISTA DE EMPRESAS VAZIA ------\n\n"
 
 #define MSG_OBTER_NOME_EMPRESA "\nInsira o nome da empresa:"
 #define MAX_NOME_EMPRESA 40
@@ -42,8 +42,8 @@
 #define EMPRESAS_TAM_INICIAL 2
 
 #define EMPRESA_REGISTADA_SUCESSO "\n------ EMPRESA REGISTADA COM SUCESSO ------\n\n"
-#define EMPRESA_EDITADA_SUCESSO "\n------ EMPRESA ATUALIZADA COM SUCESSO ------\n\n"
-#define EMPRESA_REMOVIDA_SUCESSO "\n------ EMPRESA REMOVIDA COM SUCESSO ------\n\n"
+#define EMPRESA_EDITADA_SUCESSO   "\n------ EMPRESA ATUALIZADA COM SUCESSO ------\n\n"
+#define EMPRESA_REMOVIDA_SUCESSO  "\n------ EMPRESA REMOVIDA COM SUCESSO ------\n\n"
 
 #define BARRA "----------------------------------------\n"
 
