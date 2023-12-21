@@ -52,7 +52,7 @@ void apagarDadosComentarios(Comentario *comentario) {
 int procurarComentario(Comentarios comentarios, char titulo[]) {
     int i;
     for (i = 0; i < comentarios.contador; i++) {
-        if (comentarios.comentario[i].titulo == titulo) {
+        if (strcmp(comentarios.comentario[i].titulo, titulo) == 0) {
             return 1;
         }
     }
@@ -69,7 +69,7 @@ int procurarComentario(Comentarios comentarios, char titulo[]) {
  */
 int obterPosicaoComentario(char titulo[], Comentarios comentarios) {
     for (int i = 0; i < comentarios.contador; i++) {
-        if (comentarios.comentario[i].titulo == titulo) {
+        if (strcmp(comentarios.comentario[i].titulo, titulo)) {
             return i;
         }
     }
