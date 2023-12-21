@@ -17,6 +17,8 @@
  * @brief Macros usadas na gestão de Empresas 
  */
 
+#define CRITERIOS_INVALIDOS  "\n------ CRITERIOS INEXISTENTES ------\n\n"
+
 #define EMPRESA_NAO_EXISTE   "\n------ EMPRESA INEXISTENTE ------\n\n"
 #define EMPRESA_EXISTE       "\n------ EMPRESA JÁ EXISTENTE ------\n\n"
 #define EMPRESA_LISTA_CHEIA  "\n------ NÃO É POSSÍVEL INSERIR OUTRA EMPRESA ------\n\n"
@@ -85,6 +87,7 @@ void listarEmpresas(Empresas empresas);
 int obterPosicaoEmpresa(int NIF, Empresas empresas);
 void guardarEmpresas(Empresas *vendedores, char *ficheiro);
 //void obterListaEmpresas(Comissoes *comissoes, Vendedores *vendedores);
+void pesquisarEmpresas(Empresas *empresas, char nome[], char localidade[], char ramoAtividade[]);
 
 #endif /* EMPRESAS_H */
 

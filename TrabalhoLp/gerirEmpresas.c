@@ -236,6 +236,28 @@ void guardarEmpresas(Empresas *empresas, char *ficheiro) {
     fclose(fp);
 }
 
+void pesquisarEmpresas(Empresas *empresas, char nome[], char localidade[], char ramoAtividade[]) {
+    for (int i = 0; i < empresas->contador; i++) {
+        if (empresas->empresa[i].ativo) {
+            if (strcmp(empresas->empresa[i].nomeEmpresa, nome) == 0) {
+                imprimirEmpresas(empresas->empresa[i]);
+                return;
+            } else if (strcmp(empresas->empresa[i].localidade, localidade) == 0) {
+                imprimirEmpresas(empresas->empresa[i]);
+                return;
+//            } else if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
+
+                imprimirEmpresas(empresas->empresa[i]);
+
+//              return;
+
+            }else {
+                puts(CRITERIOS_INVALIDOS);
+            }
+        }
+    }
+}
+
 /**
  * Esta função lista o número de comissões de todas as empresas
  * 
