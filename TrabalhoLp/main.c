@@ -12,6 +12,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "funcoes.h"
+#include "gerirComentarios.h"
+#include "gerirEmpresas.h"
+#include "gerirRamosAtividade.h"
 
 /*
  * 
