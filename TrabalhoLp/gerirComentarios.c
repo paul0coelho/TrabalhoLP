@@ -238,3 +238,32 @@ void guardarComentarios(Comentarios *comentarios, char *ficheiro) {
 
     fclose(fp);
 }
+
+/**
+ * @brief Verifica se o ID do mercado inserido pelo utilizador existe
+ * Se o vendedor tiver comissões associadas o seu estado muda para Inativo(0) (removerMercado())
+ * Caso contrário o registo do mercado é removido e o contador descresce por 1
+ * 
+ * @param mercados apontador para a struct Mercados
+ * @param comissões apontador para a struct Comissoes
+ */
+void removerComentario(Comentarios *comentarios) {
+    int i, numero;
+    char titulo[MAX_TITULO];
+
+    titulo = lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
+
+    if (procurarComentario(*comentarios, titulo) == 1) {
+        numero = obterPosicaoComentario(titulo, *comentarios);
+
+        for (i = numero; i < comentarios->contador - 1; i++) {
+            comentarios->comentario[i] = comentarios->comentario[i + 1];
+        }
+
+        apagarDadosComentarios(&comentarios->comentario[i]);
+        comentarios->contador--;
+        puts(COMENTARIO_REMOVIDO_SUCESSO);
+    } else {
+        puts(COMENTARIO_NAO_EXISTE);
+    }
+}
