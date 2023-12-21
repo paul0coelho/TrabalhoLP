@@ -9,15 +9,6 @@
 #define FUNCOES_H
 
 /**
- * @brief A estrutura de dados que permite formatar datas
- */
-
-typedef struct {
-    int diaInicial, mesInicial, anoInicial;
-    int diaFinal, mesFinal, anoFinal;
-} Data;
-
-/**
  * @brief Ficheiros utilizados para guardar os registos
  */
 #define EMP_DB_FILE "empresas.bin"
