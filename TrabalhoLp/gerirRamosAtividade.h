@@ -38,7 +38,7 @@
  */
 typedef struct {
     char nome[MAX_RAMO];
-    int ativo;
+    int estado;
 } RamoAtividade;
 
 typedef struct {

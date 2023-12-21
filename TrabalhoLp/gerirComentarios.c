@@ -145,7 +145,7 @@ int registarComentario(Comentarios *comentarios) {
         lerString(comentarios->comentario[comentarios->contador].nomeEmpresa, MAX_NOME_EMPRESA_COMENT, MSG_OBTER_NOME_EMPRESA_COMENT);
         strcpy(comentarios->comentario[comentarios->contador].titulo, titulo);
         lerString(comentarios->comentario[comentarios->contador].texto, MAX_COMENTARIO, MSG_OBTER_TEXTO);
-        comentarios->comentario[comentarios->contador].ativo = 1;
+        comentarios->comentario[comentarios->contador].estado = 1;
 
         return comentarios->contador++;
     }

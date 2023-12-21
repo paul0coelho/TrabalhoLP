@@ -130,7 +130,7 @@ int registarRamoAtividade(RamosAtividade *ramosAtividade) {
     if (procurarRamoAtividade(*ramosAtividade, nome) == 0) {
 
         lerString(ramosAtividade->ramoAtividade[ramosAtividade->contador].nome, MAX_RAMO, MSG_OBTER_RAMO);
-        ramosAtividade->ramoAtividade[ramosAtividade->contador].ativo = 1;
+        ramosAtividade->ramoAtividade[ramosAtividade->contador].estado = 1;
 
         return ramosAtividade->contador++;
     }

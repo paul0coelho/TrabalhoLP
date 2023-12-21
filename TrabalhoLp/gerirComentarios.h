@@ -54,7 +54,7 @@ typedef struct {
     char email[MAX_EMAIL];
     char titulo[MAX_TITULO];
     char texto[MAX_COMENTARIO];
-    int ativo;
+    int estado;
 } Comentario;
 
 typedef struct {

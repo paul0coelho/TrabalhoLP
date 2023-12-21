@@ -62,7 +62,7 @@ typedef struct {
     char rua[MAX_RUA];
     char localidade[MAX_LOCALIDADE];
     char codPostal[MAX_COD_POSTAL];
-    int ativo;
+    int estado;
 } Empresa;
 
 typedef struct {
