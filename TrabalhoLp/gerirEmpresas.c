@@ -86,12 +86,12 @@ void carregarEmpresas(Empresas *empresas, char *ficheiro) {
     if (fp != NULL) {
 
         // Retorna o número de itens completos lidos pela função
-        fread(&empresas->contador, sizeof(int), 1, fp);
+        fread(&empresas->contador, sizeof (int), 1, fp);
 
         if (empresas->contador > 0) {
-            empresas->empresa = (Empresa*)malloc(empresas->contador * sizeof(Empresa));
+            empresas->empresa = (Empresa*) malloc(empresas->contador * sizeof (Empresa));
             empresas->tamanho = empresas->contador;
-            fread(empresas->empresa, sizeof(Empresa), empresas->contador, fp);
+            fread(empresas->empresa, sizeof (Empresa), empresas->contador, fp);
 
             sucesso = 1;
         }
@@ -102,7 +102,7 @@ void carregarEmpresas(Empresas *empresas, char *ficheiro) {
         fp = fopen(ficheiro, "wb");
         if (fp != NULL) {
 
-            empresas->empresa = (Empresa*)malloc(EMPRESAS_TAM_INICIAL * sizeof(Empresa));
+            empresas->empresa = (Empresa*) malloc(EMPRESAS_TAM_INICIAL * sizeof (Empresa));
             empresas->contador = 0;
             empresas->tamanho = EMPRESAS_TAM_INICIAL;
             fclose(fp);
@@ -131,7 +131,7 @@ void libertarEmpresas(Empresas *empresas) {
  */
 int registarEmpresa(Empresas *empresas) {
     int NIFNovo;
-    
+
     NIFNovo = obterInt(MIN_NIF_EMPRESA, MAX_NIF_EMPRESA, MSG_OBTER_NIF_EMPRESA);
 
     if (procurarEmpresa(*empresas, NIFNovo) == 0) {
@@ -166,7 +166,7 @@ void editarEmpresa(Empresa *empresa) {
  * @param empresas apontador para a struct Empresas
  */
 void expandirEmpresas(Empresas *empresas) {
-    Empresa *temp = (Empresa*)realloc(empresas->empresa, sizeof(Empresa) * (empresas->tamanho * 2));
+    Empresa *temp = (Empresa*) realloc(empresas->empresa, sizeof (Empresa) * (empresas->tamanho * 2));
     if (temp != NULL) {
         empresas->tamanho *= 2;
         empresas->empresa = temp;
@@ -227,16 +227,25 @@ void guardarEmpresas(Empresas *empresas, char *ficheiro) {
         exit(EXIT_FAILURE);
     }
 
-    fwrite(&empresas->contador, sizeof(int), 1, fp);
+    fwrite(&empresas->contador, sizeof (int), 1, fp);
 
     for (i = 0; i < empresas->contador; i++) {
-        fwrite(&empresas->empresa[i], sizeof(Empresa), 1, fp);
+        fwrite(&empresas->empresa[i], sizeof (Empresa), 1, fp);
     }
 
     fclose(fp);
 }
 
-void pesquisarEmpresas(Empresas *empresas, char nome[], char localidade[], char ramoAtividade[]) {
+void pesquisarEmpresas(Empresas *empresas) {
+
+    char nome[MAX_NOME_EMPRESA];
+    char localidade[MAX_LOCALIDADE];
+    char ramoAtividade[MAX_NOME_RAMO_ATIVIDADE];
+
+    lerString(nome, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
+    lerString(localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
+    lerString(ramoAtividade, MAX_NOME_RAMO_ATIVIDADE, MSG_OBTER_RAMO_ATIVIDADE);
+
     for (int i = 0; i < empresas->contador; i++) {
         if (empresas->empresa[i].ativo) {
             if (strcmp(empresas->empresa[i].nomeEmpresa, nome) == 0) {
@@ -245,50 +254,13 @@ void pesquisarEmpresas(Empresas *empresas, char nome[], char localidade[], char 
             } else if (strcmp(empresas->empresa[i].localidade, localidade) == 0) {
                 imprimirEmpresas(empresas->empresa[i]);
                 return;
-//            } else if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
-
+                //} else if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
                 imprimirEmpresas(empresas->empresa[i]);
-
-//              return;
-
-            }else {
+                // return;
+            } else {
                 puts(CRITERIOS_INVALIDOS);
+                return;
             }
         }
     }
 }
-
-/**
- * Esta função lista o número de comissões de todas as empresas
- * 
- * @param comissoes apontador para a struct Comissoes
- * @param empresas apontador para a struct Empresas
- */
-/*void obterListaEmpresas(Comissoes *comissoes, Empresas *empresas) {
-    int NIFEmpresas[empresas->contador];
-    int comissoesEmpresas[empresas->contador];
-
-    for (int i = 0; i < empresas->contador; i++) {
-
-        NIFEmpresas[i] = 0;
-        comissoesEmpresas[i] = 0;
-
-    }
-
-    for (int j = 0; j < empresas->contador; j++) {
-
-        NIFEmpresas[j] = empresas->empresa[j].NIF;
-
-        for (int k = 0; k < comissoes->contador; k++) {
-
-            if (comissoes->comissao[k].NIFEmpresa == NIFEmpresas[j]) {
-                comissoesEmpresas[j]++;
-            }
-        }
-    }
-
-    for (int l = 0; l < empresas->contador; l++) {
-        printf("\n%d: %d comissões associadas\n", NIFEmpresas[l], comissoesEmpresas[l]);
-    }
-}
-**/

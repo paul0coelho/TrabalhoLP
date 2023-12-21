@@ -34,7 +34,7 @@
 #define MSG_OBTER_TITULO_COMENT "\nInsira o titulo do comentário:"
 #define MAX_TITULO 40
 
-#define MSG_OBTER_EMAIL "\nInsira o seu comentário:"
+#define MSG_OBTER_TEXTO "\nInsira o seu comentário:"
 #define MAX_COMENTARIO 500
 
 #define COMENTARIOS_TAM_INICIAL 2
@@ -69,7 +69,7 @@ typedef struct {
 
 void imprimirComentarios(Comentario comentario);
 void apagarDadosComentarios(Comentario *comentario);
-int procurarComentario(Comentarios comentarios, char titulo);
+int procurarComentario(Comentarios comentarios, char titulo[]);
 void carregarComentarios(Comentarios *comentarios, char *ficheiro);
 void libertarComentarios(Comentarios *comentarios);
 int registarComentario(Comentarios *comentarios);
@@ -80,7 +80,7 @@ void removerComentario(Comentario *comentario);
 //void removerComentarios(Comentarios *comentarios, Comissoes *comissoes);
 void editarComentarios(Comentarios *comentarios);
 void listarComentarios(Comentarios comentarios);
-int obterPosicaoComentario(char titulo, Comentarios comentarios);
+int obterPosicaoComentario(char titulo[], Comentarios comentarios);
 void guardarComentarios(Comentarios *vendedores, char *ficheiro);
 
 #endif /* COMENTARIOS_H */

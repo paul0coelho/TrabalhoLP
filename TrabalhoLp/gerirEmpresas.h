@@ -19,6 +19,9 @@
 
 #define CRITERIOS_INVALIDOS  "\n------ CRITERIOS INEXISTENTES ------\n\n"
 
+#define MSG_OBTER_RAMO_ATIVIDADE "\nInsira o ramo de atividade da empresa:"
+#define MAX_NOME_RAMO_ATIVIDADE 40
+
 #define EMPRESA_NAO_EXISTE   "\n------ EMPRESA INEXISTENTE ------\n\n"
 #define EMPRESA_EXISTE       "\n------ EMPRESA JÁ EXISTENTE ------\n\n"
 #define EMPRESA_LISTA_CHEIA  "\n------ NÃO É POSSÍVEL INSERIR OUTRA EMPRESA ------\n\n"
@@ -86,8 +89,7 @@ void editarEmpresas(Empresas *empresas);
 void listarEmpresas(Empresas empresas);
 int obterPosicaoEmpresa(int NIF, Empresas empresas);
 void guardarEmpresas(Empresas *vendedores, char *ficheiro);
-//void obterListaEmpresas(Comissoes *comissoes, Vendedores *vendedores);
-void pesquisarEmpresas(Empresas *empresas, char nome[], char localidade[], char ramoAtividade[]);
+void pesquisarEmpresas(Empresas *empresas);
 
 #endif /* EMPRESAS_H */
 
