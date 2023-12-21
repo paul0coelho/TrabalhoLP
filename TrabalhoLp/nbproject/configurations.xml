@@ -20,6 +20,7 @@
                    projectFiles="true">
       <itemPath>gerirComentarios.c</itemPath>
       <itemPath>gerirEmpresas.c</itemPath>
+      <itemPath>gerirRamosAtividade.c</itemPath>
       <itemPath>input.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>tools.c</itemPath>
@@ -55,6 +56,8 @@
       <item path="gerirEmpresas.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="gerirEmpresas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gerirRamosAtividade.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="gerirRamosAtividade.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -98,6 +101,8 @@
       <item path="gerirEmpresas.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="gerirEmpresas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gerirRamosAtividade.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="gerirRamosAtividade.h" ex="false" tool="3" flavor2="0">
       </item>

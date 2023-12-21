@@ -141,7 +141,8 @@ int registarEmpresa(Empresas *empresas) {
         lerString(empresas->empresa[empresas->contador].rua, MAX_RUA, MSG_OBTER_RUA);
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
         lerString(empresas->empresa[empresas->contador].codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
-
+        empresas->empresa[empresas->contador].ativo = 1;
+        
         return empresas->contador++;
     }
     return -1;

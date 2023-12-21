@@ -16,7 +16,6 @@
 /**
  * @brief Macros usadas na gestão de comentários 
  */
-
 #define COMENTARIO_NAO_EXISTE  "\n------ COMENTÁRIO INEXISTENTE ------\n\n"
 #define COMENTARIO_EXISTE      "\n------ COMENTÁRIO JÁ EXISTENTE ------\n\n"
 #define COMENTARIO_LISTA_CHEIA "\n------ NÃO É POSSÍVEL INSERIR OUTRO COMENTÁRIO ------\n\n"
@@ -66,7 +65,6 @@ typedef struct {
 /**
  * @brief Funções destinadas aos comentários
  */
-
 void imprimirComentarios(Comentario comentario);
 void apagarDadosComentarios(Comentario *comentario);
 int procurarComentario(Comentarios comentarios, char titulo[]);

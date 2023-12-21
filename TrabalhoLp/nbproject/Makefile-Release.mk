@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/gerirComentarios.o \
 	${OBJECTDIR}/gerirEmpresas.o \
+	${OBJECTDIR}/gerirRamosAtividade.o \
 	${OBJECTDIR}/input.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/tools.o
@@ -75,6 +76,11 @@ ${OBJECTDIR}/gerirEmpresas.o: gerirEmpresas.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/gerirEmpresas.o gerirEmpresas.c
+
+${OBJECTDIR}/gerirRamosAtividade.o: gerirRamosAtividade.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/gerirRamosAtividade.o gerirRamosAtividade.c
 
 ${OBJECTDIR}/input.o: input.c
 	${MKDIR} -p ${OBJECTDIR}
