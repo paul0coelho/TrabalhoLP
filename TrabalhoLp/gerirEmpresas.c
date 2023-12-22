@@ -81,11 +81,9 @@ int obterPosicaoEmpresa(int NIF, Empresas empresas) {
 void carregarEmpresas(Empresas *empresas, char *ficheiro) {
     int i, sucesso = 0;
 
-    // Tenta abrir o ficheiro
     FILE *fp = fopen(ficheiro, "rb");
     if (fp != NULL) {
 
-        // Retorna o número de itens completos lidos pela função
         fread(&empresas->contador, sizeof (int), 1, fp);
 
         if (empresas->contador > 0) {
@@ -142,7 +140,7 @@ int registarEmpresa(Empresas *empresas) {
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
         lerString(empresas->empresa[empresas->contador].codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
         empresas->empresa[empresas->contador].estado = 1;
-        
+
         return empresas->contador++;
     }
     return -1;
@@ -265,3 +263,43 @@ void pesquisarEmpresas(Empresas *empresas) {
         }
     }
 }
+
+/**
+ * @brief Esta função atualiza o estado do mercado para "Inativo"
+ * 
+ * @param mercado apontador para a struct Mercado
+ * 
+void removerEmpresa(Empresa *empresa) {
+    empresa->estado = 0;
+}
+
+ * @brief Verifica se o ID do mercado inserido pelo utilizador existe
+ * Se o vendedor tiver comissões associadas o seu estado muda para Inativo(0) (removerMercado())
+ * Caso contrário o registo do mercado é removido e o contador descresce por 1
+ * 
+ * @param mercados apontador para a struct Mercados
+ * @param comissões apontador para a struct Comissoes
+
+void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
+    int i, NIF, numero;
+
+    NIF = obterInt(MIN_NIF_EMPRESA, MAX_NIF_EMPRESA, MSG_OBTER_NIF_EMPRESA);
+
+    if (procurarEmpresa(*empresas, NIF) == 1) {
+        numero = obterPosicaoEmpresa(NIF, *empresas);
+        if (procurarComentarioNomeEmpresa(*comentarios, empresas->empresa[numero].nomeEmpresa) == 0) {
+            for (i = numero; i < empresas->contador - 1; i++) {
+                empresas->empresa[i] = empresas->empresa[i + 1];
+            }
+
+            apagarDadosEmpresas(&empresas->empresa[i]);
+            empresas->contador--;
+            puts(EMPRESA_REMOVIDA_SUCESSO);
+        } else {
+            removerEmpresa(&(*empresas).empresa[numero]);
+        }
+    } else {
+        puts(EMPRESA_NAO_EXISTE);
+    }
+}
+ */

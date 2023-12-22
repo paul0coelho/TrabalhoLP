@@ -84,7 +84,7 @@ void editarEmpresa(Empresa *empresa);
 void expandirEmpresas(Empresas *empresas);
 void registarEmpresas(Empresas *empresas);
 void removerEmpresa(Empresa *empresa);
-//void removerEmpresas(Empresas *empresas, Comissoes *comissoes);
+//void removerEmpresas(Empresas *empresas, Comentarios *comentarios);
 void editarEmpresas(Empresas *empresas);
 void listarEmpresas(Empresas empresas);
 int obterPosicaoEmpresa(int NIF, Empresas empresas);

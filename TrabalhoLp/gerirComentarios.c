@@ -61,6 +61,25 @@ int procurarComentario(Comentarios comentarios, char titulo[]) {
 }
 
 /**
+ * @brief Esta função verifica se a empresa existe nos registos das Empresas
+ * 
+ * @param empresas struct Empresas
+ * @param NIF
+ * @return 1 se a empresa existir e 0 se ela não existir
+ */
+
+int procurarComentarioEmpresa(Comentarios comentarios, char nomeEmpresa[]) {
+    int i;
+    for (i = 0; i < comentarios.contador; i++) {
+        if (strcmp(comentarios.comentario[i].nomeEmpresa, nomeEmpresa) == 0) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+/**
  * @brief Procura se uma empresa existe, caso se confirme retorna a posição no registo Empresas, se não existir retorna -1
  * 
  * @param NIF
@@ -251,7 +270,7 @@ void removerComentario(Comentarios *comentarios) {
     int i, numero;
     char titulo[MAX_TITULO];
 
-    titulo = lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
+    lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
 
     if (procurarComentario(*comentarios, titulo) == 1) {
         numero = obterPosicaoComentario(titulo, *comentarios);

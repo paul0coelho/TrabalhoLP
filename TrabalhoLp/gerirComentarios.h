@@ -68,6 +68,7 @@ typedef struct {
 void imprimirComentarios(Comentario comentario);
 void apagarDadosComentarios(Comentario *comentario);
 int procurarComentario(Comentarios comentarios, char titulo[]);
+int procurarComentarioNomeEmpresa(Comentarios comentarios, char nomeEmpresa[]);
 void carregarComentarios(Comentarios *comentarios, char *ficheiro);
 void libertarComentarios(Comentarios *comentarios);
 int registarComentario(Comentarios *comentarios);
