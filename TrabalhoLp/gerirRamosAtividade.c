@@ -240,7 +240,7 @@ void removerRamoAtividade(RamoAtividade *ramoAtividade) {
  * @param mercados apontador para a struct Mercados
  * @param comissões apontador para a struct Comissoes
  */
-
+/**
 void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
     int i, numero;
     char ramoAtividade[MAX_RAMO];
@@ -268,3 +268,4 @@ void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
         puts(RAMO_NAO_EXISTE);
     }
 }
+ */

@@ -265,9 +265,9 @@ void pesquisarEmpresas(Empresas *empresas) {
             } else if (strcmp(empresas->empresa[i].localidade, localidade) == 0) {
                 imprimirEmpresas(empresas->empresa[i]);
                 return;
-                //} else if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
+                } else if (strcmp(empresas->empresa[i].ramoAtividade.nome, ramoAtividade) == 0) {
                 imprimirEmpresas(empresas->empresa[i]);
-                // return;
+                return;
             } else {
                 puts(CRITERIOS_INVALIDOS);
                 return;
