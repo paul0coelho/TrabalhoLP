@@ -13,6 +13,9 @@
 #ifndef EMPRESAS_H
 #define EMPRESAS_H
 
+#include "gerirRamosAtividade.h"
+#include "gerirComentarios.h"
+
 /**
  * @brief Macros usadas na gestão de Empresas 
  */
@@ -58,6 +61,7 @@
 
 typedef struct {
     char nomeEmpresa[MAX_NOME_EMPRESA];
+    RamoAtividade ramoAtividade;
     int NIF;
     char rua[MAX_RUA];
     char localidade[MAX_LOCALIDADE];
@@ -79,10 +83,10 @@ void apagarDadosEmpresas(Empresa *empresa);
 int procurarEmpresa(Empresas empresas, int NIF);
 void carregarEmpresas(Empresas *empresas, char *ficheiro);
 void libertarEmpresas(Empresas *empresas);
-int registarEmpresa(Empresas *empresas);
+int registarEmpresa(Empresas *empresas, RamosAtividade *ramosAtividade);
 void editarEmpresa(Empresa *empresa);
 void expandirEmpresas(Empresas *empresas);
-void registarEmpresas(Empresas *empresas);
+void registarEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade);
 void removerEmpresa(Empresa *empresa);
 //void removerEmpresas(Empresas *empresas, Comentarios *comentarios);
 void editarEmpresas(Empresas *empresas);

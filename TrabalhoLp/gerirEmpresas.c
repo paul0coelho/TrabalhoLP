@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "gerirEmpresas.h"
+#include "gerirRamosAtividade.h"
 #include "input.h"
 
 /**
@@ -13,6 +14,7 @@
 void imprimirEmpresas(Empresa empresa) {
 
     printf("\tNome: %s\n", empresa.nomeEmpresa);
+    printf("\tRamo de atividade: %s\n", empresa.ramoAtividade.nome);
     printf("\tNIF: %d\n", empresa.NIF);
     printf("\tRua: %s\n", empresa.rua);
     printf("\tLocalidade: %s\n", empresa.localidade);
@@ -127,7 +129,7 @@ void libertarEmpresas(Empresas *empresas) {
  * @param empresas apontador para struct Empresas
  * @return -1 se o NIF já existir ou retorna o número do contador se os dados foram registados com sucesso
  */
-int registarEmpresa(Empresas *empresas) {
+int registarEmpresa(Empresas *empresas, RamosAtividade *ramosAtividade) {
     int NIFNovo;
 
     NIFNovo = obterInt(MIN_NIF_EMPRESA, MAX_NIF_EMPRESA, MSG_OBTER_NIF_EMPRESA);
@@ -136,6 +138,16 @@ int registarEmpresa(Empresas *empresas) {
 
         empresas->empresa[empresas->contador].NIF = NIFNovo;
         lerString(empresas->empresa[empresas->contador].nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
+
+        do {
+            lerString(empresas->empresa[empresas->contador].ramoAtividade.nome, MAX_NOME_RAMO_ATIVIDADE, MSG_OBTER_RAMO_ATIVIDADE);
+
+            if (procurarRamoAtividade(*ramosAtividade, empresas->empresa[empresas->contador].ramoAtividade.nome) == 0) {
+                printf("O ramo de atividade '%s' não existe. Por favor, insira um ramo de atividade válido.\n", empresas->empresa[empresas->contador].ramoAtividade);
+            }
+
+        } while (procurarRamoAtividade(*ramosAtividade, empresas->empresa[empresas->contador].ramoAtividade.nome) != 1);
+
         lerString(empresas->empresa[empresas->contador].rua, MAX_RUA, MSG_OBTER_RUA);
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
         lerString(empresas->empresa[empresas->contador].codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
@@ -178,13 +190,13 @@ void expandirEmpresas(Empresas *empresas) {
  * 
  * @param empresas apontador para a struct Empresas
  */
-void registarEmpresas(Empresas *empresas) {
+void registarEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade) {
     if (empresas->contador == empresas->tamanho) {
         expandirEmpresas(empresas);
     }
 
     if (empresas->contador < empresas->tamanho) {
-        if (registarEmpresa(empresas) == -1) {
+        if (registarEmpresa(empresas,ramosAtividade) == -1) {
             puts(EMPRESA_EXISTE);
         } else {
             puts(EMPRESA_REGISTADA_SUCESSO);
@@ -268,18 +280,22 @@ void pesquisarEmpresas(Empresas *empresas) {
  * @brief Esta função atualiza o estado do mercado para "Inativo"
  * 
  * @param mercado apontador para a struct Mercado
- * 
+ */
+/*
 void removerEmpresa(Empresa *empresa) {
     empresa->estado = 0;
 }
+*/
 
+/**
  * @brief Verifica se o ID do mercado inserido pelo utilizador existe
  * Se o vendedor tiver comissões associadas o seu estado muda para Inativo(0) (removerMercado())
  * Caso contrário o registo do mercado é removido e o contador descresce por 1
  * 
  * @param mercados apontador para a struct Mercados
  * @param comissões apontador para a struct Comissoes
-
+ */
+/**
 void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
     int i, NIF, numero;
 
