@@ -80,12 +80,12 @@ void carregarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro) {
     if (fp != NULL) {
 
         // Retorna o número de itens completos lidos pela função
-        fread(&ramosAtividade->contador, sizeof(int), 1, fp);
+        fread(&ramosAtividade->contador, sizeof (int), 1, fp);
 
         if (ramosAtividade->contador > 0) {
-            ramosAtividade->ramoAtividade = (RamoAtividade*)malloc(ramosAtividade->contador * sizeof(RamoAtividade));
+            ramosAtividade->ramoAtividade = (RamoAtividade*) malloc(ramosAtividade->contador * sizeof (RamoAtividade));
             ramosAtividade->tamanho = ramosAtividade->contador;
-            fread(ramosAtividade->ramoAtividade, sizeof(RamoAtividade), ramosAtividade->contador, fp);
+            fread(ramosAtividade->ramoAtividade, sizeof (RamoAtividade), ramosAtividade->contador, fp);
 
             sucesso = 1;
         }
@@ -96,7 +96,7 @@ void carregarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro) {
         fp = fopen(ficheiro, "wb");
         if (fp != NULL) {
 
-            ramosAtividade->ramoAtividade = (RamoAtividade*)malloc(RAMOS_TAM_INICIAL * sizeof(RamoAtividade));
+            ramosAtividade->ramoAtividade = (RamoAtividade*) malloc(RAMOS_TAM_INICIAL * sizeof (RamoAtividade));
             ramosAtividade->contador = 0;
             ramosAtividade->tamanho = RAMOS_TAM_INICIAL;
             fclose(fp);
@@ -153,7 +153,7 @@ void editarRamoAtividade(RamoAtividade *ramoAtividade) {
  * @param ramosAtividade apontador para a struct RamosAtividade
  */
 void expandirRamosAtividade(RamosAtividade *ramosAtividade) {
-    RamoAtividade *temp = (RamoAtividade*)realloc(ramosAtividade->ramoAtividade, sizeof(RamoAtividade) * (ramosAtividade->tamanho * 2));
+    RamoAtividade *temp = (RamoAtividade*) realloc(ramosAtividade->ramoAtividade, sizeof (RamoAtividade) * (ramosAtividade->tamanho * 2));
     if (temp != NULL) {
         ramosAtividade->tamanho *= 2;
         ramosAtividade->ramoAtividade = temp;
@@ -214,11 +214,57 @@ void guardarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro) {
         exit(EXIT_FAILURE);
     }
 
-    fwrite(&ramosAtividade->contador, sizeof(int), 1, fp);
+    fwrite(&ramosAtividade->contador, sizeof (int), 1, fp);
 
     for (i = 0; i < ramosAtividade->contador; i++) {
-        fwrite(&ramosAtividade->ramoAtividade[i], sizeof(RamoAtividade), 1, fp);
+        fwrite(&ramosAtividade->ramoAtividade[i], sizeof (RamoAtividade), 1, fp);
     }
 
     fclose(fp);
+}
+
+/**
+ * @brief Esta função atualiza o estado do mercado para "Inativo"
+ * 
+ * @param mercado apontador para a struct Mercado
+ */
+void removerRamoAtividade(RamoAtividade *ramoAtividade) {
+    ramoAtividade->estado = 0;
+}
+
+/**
+ * @brief Verifica se o ID do mercado inserido pelo utilizador existe
+ * Se o vendedor tiver comissões associadas o seu estado muda para Inativo(0) (removerMercado())
+ * Caso contrário o registo do mercado é removido e o contador descresce por 1
+ * 
+ * @param mercados apontador para a struct Mercados
+ * @param comissões apontador para a struct Comissoes
+ */
+
+void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
+    int i, numero;
+    char ramoAtividade[MAX_RAMO];
+
+    ramoAtividade = lerString(ramoAtividade, MAX_RAMO, MSG_OBTER_RAMO);
+
+    if (procurarRamoAtividade(*ramosAtividade, ramoAtividade) == 1) {
+
+        for (i = 0; i < empresas->contador; i++) {
+            if (strcmp(empresas->empresa[i].ramoAtividade.nome, ramoAtividade) == 0) {
+                removerRamoAtividade(&(*ramosAtividade).ramoAtividade[numero]);
+                return;
+            }
+        }
+
+        numero = obterPosicaoRamoAtividade(ramoAtividade, *ramosAtividade);
+        for (i = numero; i < ramosAtividade->contador - 1; i++) {
+            ramosAtividade->ramoAtividade[i] = ramosAtividade->ramoAtividade[i + 1];
+        }
+
+        apagarDadosRamoAtividade(&ramosAtividade->ramoAtividade[i]);
+        ramosAtividade->contador--;
+        puts(RAMO_REMOVIDO_SUCESSO);
+    } else {
+        puts(RAMO_NAO_EXISTE);
+    }
 }

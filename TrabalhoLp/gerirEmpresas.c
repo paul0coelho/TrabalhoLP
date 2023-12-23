@@ -281,11 +281,9 @@ void pesquisarEmpresas(Empresas *empresas) {
  * 
  * @param mercado apontador para a struct Mercado
  */
-/*
 void removerEmpresa(Empresa *empresa) {
     empresa->estado = 0;
 }
-*/
 
 /**
  * @brief Verifica se o ID do mercado inserido pelo utilizador existe
