@@ -199,7 +199,7 @@ void menuPrincipal() {
 }
 
 int main() {
-
+    
     menuPrincipal();
 
     return (EXIT_SUCCESS);

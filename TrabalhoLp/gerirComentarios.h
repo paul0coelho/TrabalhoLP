@@ -79,7 +79,7 @@ void removerComentarios(Comentarios *comentarios);
 void editarComentarios(Comentarios *comentarios);
 void listarComentarios(Comentarios comentarios);
 int obterPosicaoComentario(char titulo[], Comentarios comentarios);
-void guardarComentarios(Comentarios *vendedores, char *ficheiro);
+void guardarComentarios(Comentarios *comentarios, char *ficheiro);
 
 #endif /* COMENTARIOS_H */
 

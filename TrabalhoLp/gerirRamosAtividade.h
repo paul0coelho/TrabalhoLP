@@ -63,7 +63,7 @@ void removerRamoAtividade(RamoAtividade *ramoAtividade);
 void editarRamosAtividade(RamosAtividade *ramosAtividade);
 void listarRamosAtividade(RamosAtividade ramosAtividade);
 int obterPosicaoRamoAtividade(char nome[], RamosAtividade ramosAtividade);
-void guardarRamosAtividade(RamosAtividade *vendedores, char *ficheiro);
+void guardarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro);
 
 #endif /* RAMOSATIVIDADE_H */
 

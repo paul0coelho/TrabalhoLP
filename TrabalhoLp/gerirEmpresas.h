@@ -92,7 +92,7 @@ void removerEmpresa(Empresa *empresa);
 void editarEmpresas(Empresas *empresas);
 void listarEmpresas(Empresas empresas);
 int obterPosicaoEmpresa(int NIF, Empresas empresas);
-void guardarEmpresas(Empresas *vendedores, char *ficheiro);
+void guardarEmpresas(Empresas *comentarios, char *ficheiro);
 void pesquisarEmpresas(Empresas *empresas);
 
 #endif /* EMPRESAS_H */
