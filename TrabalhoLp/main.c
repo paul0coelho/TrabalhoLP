@@ -20,7 +20,7 @@
 /*
  * 
  */
-void menuAdmin() {
+void menuAdmin(Empresas* empresas, RamosAtividade* ramosAtividade, Comentarios* comentarios) {
     int opcao;
 
     do {
@@ -37,16 +37,15 @@ void menuAdmin() {
                 puts("");
                 break;
             case 1:
-                menuEmpresas();
+                menuEmpresas(empresas, ramosAtividade);
                 puts("");
                 break;
             case 2:
-                menuRamosAtividade();
+                menuRamosAtividade(ramosAtividade);
                 puts("");
                 break;
             case 3:
-                //relatóriox();
-                //realtórioy();
+                //relatorios(empresas, ramosAtividade, comentarios);
                 puts("");
                 break;
             default:
@@ -58,7 +57,7 @@ void menuAdmin() {
     } while (opcao != 0);
 }
 
-void menuEmpresas() {
+void menuEmpresas(Empresas* empresas) {
     int opcao;
 
     do {
@@ -76,16 +75,17 @@ void menuEmpresas() {
                 puts("");
                 break;
             case 1:
-                //registarEmpresa();
+                //registarEmpresa(empresas);
                 puts("");
                 break;
             case 2:
-                //removerEmpresa();
+                //removerEmpresa(empresas);
                 break;
             case 3:
-                //editarEmpresa();
+                //editarEmpresa(empresas);
                 break;
             case 4:
+                //guardarAlteracoes(empresas);
                 break;
             default:
                 printf("Insira uma opção válida");
@@ -95,7 +95,7 @@ void menuEmpresas() {
     } while (opcao != 0);
 }
 
-void menuRamosAtividade() {
+void menuRamosAtividade(RamosAtividade* ramosAtividade) {
     int opcao;
 
     do {
@@ -113,16 +113,17 @@ void menuRamosAtividade() {
                 puts("");
                 break;
             case 1:
-                //registarRamoDeAtividade();
+                //registarRamoDeAtividade(ramosAtividade);
                 puts("");
                 break;
             case 2:
-                //removerRamoDeAtividade();
+                //removerRamoDeAtividade(ramosAtividade);
                 break;
             case 3:
-                //editarRamoDeAtividade();
+                //editarRamoDeAtividade(ramosAtividade);
                 break;
             case 4:
+                //guardarAlteracoes(ramosAtividade);
                 break;
             default:
                 printf("Insira uma opção válida");
@@ -132,7 +133,7 @@ void menuRamosAtividade() {
     } while (opcao != 0);
 }
 
-void menuUser() {
+void menuUser(Empresas* empresas, Comentarios* comentarios) {
     int opcao;
 
     do {
@@ -149,28 +150,27 @@ void menuUser() {
                 puts("");
                 break;
             case 1:
-                //pesquisarEmpresa(nomeEmpresa,categoria,ramoDeAtividade);
+                //pesquisarEmpresa(empresas);
                 puts("");
                 break;
             case 2:
-                //classificarEmpresa(nomeEmpresa,nota);
+                //classificarEmpresa(empresas);
                 puts("");
                 break;
             case 3:
-                //comentarEmpresa(nomeEmpresa,comentario,nome,email);
+                //comentarEmpresa(comentarios);
                 puts("");
                 break;
             default:
-                printf("Insira uma opcão válida");
+                printf("Insira uma opção válida");
                 puts("");
                 break;
         }
 
     } while (opcao != 0);
-
 }
 
-void menuPrincipal() {
+void menuPrincipal(Empresas* empresas, RamosAtividade* ramosAtividade, Comentarios* comentarios) {
     int opcao;
 
     do {
@@ -183,15 +183,15 @@ void menuPrincipal() {
 
         switch (opcao) {
             case 1:
-                menuAdmin();
+                menuAdmin(empresas, ramosAtividade, comentarios);
                 break;
             case 2:
-                menuUser();
+                menuUser(empresas, comentarios);
                 break;
             case 0:
                 return;
             default:
-                puts("Insira uma opcão válida!");
+                puts("Insira uma opção válida!");
                 break;
         }
 
@@ -199,8 +199,20 @@ void menuPrincipal() {
 }
 
 int main() {
-    
-    menuPrincipal();
+
+    Empresas empresas;
+    Comentarios comentarios;
+    RamosAtividade ramosAtividade;
+
+    carregarEmpresas(&empresas, EMP_DB_FILE);
+    carregarComentarios(&comentarios, COMENTS_DB_FILE);
+    carregarRamosAtividade(&ramosAtividade, RAMOS_DB_FILE);
+
+    menuPrincipal(&empresas, &ramosAtividade, &comentarios);
+
+    libertarEmpresas(&empresas);
+    libertarComentarios(&comentarios);
+    libertarRamosAtividade(&ramosAtividade);
 
     return (EXIT_SUCCESS);
 }
