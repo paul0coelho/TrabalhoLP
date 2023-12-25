@@ -20,14 +20,15 @@
 /*
  * 
  */
-void menuAdmin(Empresas* empresas, RamosAtividade* ramosAtividade, Comentarios* comentarios) {
+void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
     int opcao;
 
     do {
         printf("-------- ADMINISTRADOR --------\n");
         printf("\t1 - Gerir o Catálogo de Empresas\n");
         printf("\t2 - Gerir Ramos de Atividade\n");
-        printf("\t3 - Visualizar Relatórios\n");
+        printf("\t3 - Gerir Comentários\n");
+        printf("\t4 - Visualizar Relatórios\n");
         printf("\t0 - Sair\n");
 
         opcao = obterInt(0, 3, "\nOpção: ");
@@ -45,8 +46,11 @@ void menuAdmin(Empresas* empresas, RamosAtividade* ramosAtividade, Comentarios* 
                 puts("");
                 break;
             case 3:
-                //relatorios(empresas, ramosAtividade, comentarios);
+                //menuComentarios(comentarios);
                 puts("");
+                break;
+            case 4:
+                //relatorios();
                 break;
             default:
                 printf("Insira uma opção válida");
@@ -57,7 +61,7 @@ void menuAdmin(Empresas* empresas, RamosAtividade* ramosAtividade, Comentarios* 
     } while (opcao != 0);
 }
 
-void menuEmpresas(Empresas* empresas) {
+void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade) {
     int opcao;
 
     do {
@@ -95,7 +99,7 @@ void menuEmpresas(Empresas* empresas) {
     } while (opcao != 0);
 }
 
-void menuRamosAtividade(RamosAtividade* ramosAtividade) {
+void menuRamosAtividade(RamosAtividade *ramosAtividade) {
     int opcao;
 
     do {
@@ -133,7 +137,7 @@ void menuRamosAtividade(RamosAtividade* ramosAtividade) {
     } while (opcao != 0);
 }
 
-void menuUser(Empresas* empresas, Comentarios* comentarios) {
+void menuUser(Empresas *empresas, Comentarios *comentarios) {
     int opcao;
 
     do {
@@ -170,7 +174,7 @@ void menuUser(Empresas* empresas, Comentarios* comentarios) {
     } while (opcao != 0);
 }
 
-void menuPrincipal(Empresas* empresas, RamosAtividade* ramosAtividade, Comentarios* comentarios) {
+void menuPrincipal(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
     int opcao;
 
     do {
