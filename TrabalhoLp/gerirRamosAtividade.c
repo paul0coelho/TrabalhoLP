@@ -268,4 +268,4 @@ void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
         puts(RAMO_NAO_EXISTE);
     }
 }
- */
+*/

@@ -46,7 +46,7 @@ void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *
                 puts("");
                 break;
             case 3:
-                //menuComentarios(comentarios);
+                menuComentarios(comentarios);
                 puts("");
                 break;
             case 4:
@@ -69,27 +69,32 @@ void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade) {
         printf("\t1 - Registar empresa\n");
         printf("\t2 - Remover Empresa\n");
         printf("\t3 - Editar empresa\n");
-        printf("\t4 - Guardar alterações\n");
+        printf("\t4 - Listar Empresas\n");
+        printf("\t5 - Guardar alterações\n");
         printf("\t0 - Sair\n");
 
-        opcao = obterInt(0, 4, "\nOpção: ");
+        opcao = obterInt(0, 5, "\nOpção: ");
 
         switch (opcao) {
             case 0:
                 puts("");
                 break;
             case 1:
-                //registarEmpresa(empresas);
+                registarEmpresa(empresas,ramosAtividade);
                 puts("");
                 break;
             case 2:
                 //removerEmpresa(empresas);
                 break;
             case 3:
-                //editarEmpresa(empresas);
+                editarEmpresa(empresas);
                 break;
             case 4:
-                //guardarAlteracoes(empresas);
+                listarEmpresas(*empresas);
+                puts("");
+                break;
+            case 5:
+                guardarEmpresas(empresas, EMP_DB_FILE);
                 break;
             default:
                 printf("Insira uma opção válida");
@@ -107,27 +112,66 @@ void menuRamosAtividade(RamosAtividade *ramosAtividade) {
         printf("\t1 - Registar ramo de atividade\n");
         printf("\t2 - Remover ramo de atividade\n");
         printf("\t3 - Editar ramo de atividade\n");
-        printf("\t4 - Guardar alterações\n");
+        printf("\t4 - Listar Ramos de Atividade\n");
+        printf("\t5 - Guardar alterações\n");
         printf("\t0 - Sair\n");
 
-        opcao = obterInt(0, 4, "\nOpção: ");
+        opcao = obterInt(0, 5, "\nOpção: ");
 
         switch (opcao) {
             case 0:
                 puts("");
                 break;
             case 1:
-                //registarRamoDeAtividade(ramosAtividade);
+                registarRamoAtividade(ramosAtividade);
                 puts("");
                 break;
             case 2:
                 //removerRamoDeAtividade(ramosAtividade);
                 break;
             case 3:
-                //editarRamoDeAtividade(ramosAtividade);
+                editarRamoAtividade(ramosAtividade);
                 break;
             case 4:
-                //guardarAlteracoes(ramosAtividade);
+                listarRamosAtividade(*ramosAtividade);
+                puts("");
+                break;
+            case 5:
+                guardarRamosAtividade(ramosAtividade, RAMOS_DB_FILE);
+                break;
+            default:
+                printf("Insira uma opção válida");
+                break;
+        }
+
+    } while (opcao != 0);
+}
+
+void menuComentarios(Comentarios *comentarios) {
+    int opcao;
+
+    do {
+        printf("-------- GESTÃO DE COMENTÁRIOS --------\n");
+        printf("\t1 - Remover comentário\n");
+        printf("\t2 - Listar Comentários\n");
+        printf("\t3 - Guardar alterações\n");
+        printf("\t0 - Sair\n");
+
+        opcao = obterInt(0, 3, "\nOpção: ");
+
+        switch (opcao) {
+            case 0:
+                puts("");
+                break;
+            case 1:
+                removerComentario(comentarios);
+                puts("");
+                break;
+            case 2:
+                listarComentarios(*comentarios);
+                break;
+            case 3:
+                guardarComentarios(comentarios, COMENTS_DB_FILE);
                 break;
             default:
                 printf("Insira uma opção válida");
@@ -154,7 +198,7 @@ void menuUser(Empresas *empresas, Comentarios *comentarios) {
                 puts("");
                 break;
             case 1:
-                //pesquisarEmpresa(empresas);
+                pesquisarEmpresas(empresas);
                 puts("");
                 break;
             case 2:
@@ -162,7 +206,7 @@ void menuUser(Empresas *empresas, Comentarios *comentarios) {
                 puts("");
                 break;
             case 3:
-                //comentarEmpresa(comentarios);
+                registarComentario(comentarios);
                 puts("");
                 break;
             default:

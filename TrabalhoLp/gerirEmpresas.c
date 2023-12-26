@@ -316,4 +316,4 @@ void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
         puts(EMPRESA_NAO_EXISTE);
     }
 }
- */
+*/
