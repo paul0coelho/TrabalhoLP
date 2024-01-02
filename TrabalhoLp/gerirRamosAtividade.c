@@ -148,6 +148,27 @@ void editarRamoAtividade(RamoAtividade *ramoAtividade) {
 }
 
 /**
+ * @brief Verifica se o código do vendedor inserido pelo utilizador existe
+ * Se sim chama-se a função editarVendedor() que vai mudar os dados do vendedor
+ * 
+ * @param vendedores apontador para a struct Vendedores
+ */
+void editarRamosAtividade(RamosAtividade *ramosAtividade) {
+    char nome[MAX_RAMO];
+    
+    lerString(nome, MAX_RAMO, MSG_OBTER_RAMO);
+
+    int pos = obterPosicaoRamoAtividade(nome, *ramosAtividade);
+
+    if (pos != -1) {
+        editarRamoAtividade(&(*ramosAtividade).ramoAtividade[pos]);
+        puts(RAMO_EDITADO_SUCESSO);
+    } else {
+        puts(RAMO_NAO_EXISTE);
+    }
+}
+
+/**
  * @brief Esta função aumenta o tamanho da memória para registar ramos de atividade
  * 
  * @param ramosAtividade apontador para a struct RamosAtividade

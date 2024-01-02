@@ -172,6 +172,23 @@ void editarEmpresa(Empresa *empresa) {
 }
 
 /**
+ * @brief Verifica se o código do vendedor inserido pelo utilizador existe
+ * Se sim chama-se a função editarVendedor() que vai mudar os dados do vendedor
+ * 
+ * @param vendedores apontador para a struct Vendedores
+ */
+void editarEmpresas(Empresas *empresas) {
+    int NIF = obterPosicaoEmpresa(obterInt(MIN_NIF_EMPRESA, MAX_NIF_EMPRESA, MSG_OBTER_NIF_EMPRESA), *empresas);
+   
+    if (NIF != -1) {
+        editarEmpresa(&(*empresas).empresa[NIF]);
+        puts(EMPRESA_EDITADA_SUCESSO);
+    } else {
+        puts(EMPRESA_NAO_EXISTE);
+    }
+}
+
+/**
  * @brief Esta função aumenta o tamanho da memória para registar empresas
  * 
  * @param empresas apontador para a struct Empresas

@@ -40,14 +40,14 @@ void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade, Comentario
                 puts("");
                 break;
             case 1:
-                registarEmpresa(empresas, ramosAtividade);
+                registarEmpresas(empresas, ramosAtividade);
                 puts("");
                 break;
             case 2:
                 removerEmpresas(empresas, comentarios);
                 break;
             case 3:
-                editarEmpresa(empresas);
+                editarEmpresas(empresas);
                 break;
             case 4:
                 listarEmpresas(*empresas);
@@ -90,7 +90,7 @@ void menuRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
                 removerRamosAtividade(ramosAtividade, empresas);
                 break;
             case 3:
-                editarRamoAtividade(ramosAtividade);
+                editarRamosAtividade(ramosAtividade);
                 break;
             case 4:
                 listarRamosAtividade(*ramosAtividade);
@@ -255,13 +255,13 @@ int main() {
 
     carregarEmpresas(&empresas, EMP_DB_FILE);
     carregarComentarios(&comentarios, COMENTS_DB_FILE);
-    carregarRamoAtividade(&ramosAtividade, RAMOS_DB_FILE);
+    carregarRamosAtividade(&ramosAtividade, RAMOS_DB_FILE);
 
     menuPrincipal(&empresas, &ramosAtividade, &comentarios);
 
     libertarEmpresas(&empresas);
     libertarComentarios(&comentarios);
-    libertarRamoAtividade(&ramosAtividade);
+    libertarRamosAtividade(&ramosAtividade);
 
     return (EXIT_SUCCESS);
 }
