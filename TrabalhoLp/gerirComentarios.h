@@ -75,7 +75,7 @@ int registarComentario(Comentarios *comentarios);
 void editarComentario(Comentario *comentario);
 void expandirComentarios(Comentarios *comentarios);
 void registarComentarios(Comentarios *comentarios);
-void removerComentarios(Comentarios *comentarios);
+void removerComentario(Comentarios *comentarios);
 void editarComentarios(Comentarios *comentarios);
 void listarComentarios(Comentarios comentarios);
 int obterPosicaoComentario(char titulo[], Comentarios comentarios);
