@@ -13,53 +13,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funcoes.h"
+#include "input.h"
 #include "gerirComentarios.h"
 #include "gerirEmpresas.h"
-#include "gerirRamosAtividade.h"
 
 /*
  * 
  */
-void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
-    int opcao;
-
-    do {
-        printf("-------- ADMINISTRADOR --------\n");
-        printf("\t1 - Gerir o Catálogo de Empresas\n");
-        printf("\t2 - Gerir Ramos de Atividade\n");
-        printf("\t3 - Gerir Comentários\n");
-        printf("\t4 - Visualizar Relatórios\n");
-        printf("\t0 - Sair\n");
-
-        opcao = obterInt(0, 3, "\nOpção: ");
-
-        switch (opcao) {
-            case 0:
-                puts("");
-                break;
-            case 1:
-                menuEmpresas(empresas, ramosAtividade, comentarios);
-                puts("");
-                break;
-            case 2:
-                menuRamosAtividade(ramosAtividade, empresas);
-                puts("");
-                break;
-            case 3:
-                menuComentarios(comentarios);
-                puts("");
-                break;
-            case 4:
-                //relatorios();
-                break;
-            default:
-                printf("Insira uma opção válida");
-                puts("");
-                break;
-        }
-
-    } while (opcao != 0);
-}
 
 void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
     int opcao;
@@ -80,7 +40,7 @@ void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade, Comentario
                 puts("");
                 break;
             case 1:
-                registarEmpresa(empresas,ramosAtividade);
+                registarEmpresa(empresas, ramosAtividade);
                 puts("");
                 break;
             case 2:
@@ -175,6 +135,47 @@ void menuComentarios(Comentarios *comentarios) {
                 break;
             default:
                 printf("Insira uma opção válida");
+                break;
+        }
+
+    } while (opcao != 0);
+}
+
+void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
+    int opcao;
+
+    do {
+        printf("-------- ADMINISTRADOR --------\n");
+        printf("\t1 - Gerir o Catálogo de Empresas\n");
+        printf("\t2 - Gerir Ramos de Atividade\n");
+        printf("\t3 - Gerir Comentários\n");
+        printf("\t4 - Visualizar Relatórios\n");
+        printf("\t0 - Sair\n");
+
+        opcao = obterInt(0, 3, "\nOpção: ");
+
+        switch (opcao) {
+            case 0:
+                puts("");
+                break;
+            case 1:
+                menuEmpresas(empresas, ramosAtividade, comentarios);
+                puts("");
+                break;
+            case 2:
+                menuRamosAtividade(ramosAtividade, empresas);
+                puts("");
+                break;
+            case 3:
+                menuComentarios(comentarios);
+                puts("");
+                break;
+            case 4:
+                //relatorios();
+                break;
+            default:
+                printf("Insira uma opção válida");
+                puts("");
                 break;
         }
 

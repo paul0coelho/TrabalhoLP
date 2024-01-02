@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "gerirEmpresas.h"
-#include "gerirRamosAtividade.h"
 #include "gerirComentarios.h"
 #include "input.h"
 
