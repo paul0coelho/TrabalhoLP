@@ -13,6 +13,8 @@
 #ifndef RAMOSATIVIDADE_H
 #define RAMOSATIVIDADE_H
 
+#include "gerirEmpresas.h"
+
 /**
  * @brief Macros usadas na gestão de ramos de atividade 
  */
@@ -59,7 +61,7 @@ void editarRamoAtividade(RamoAtividade *ramoAtividade);
 void expandirRamosAtividade(RamosAtividade *ramosAtividade);
 void registarRamosAtividade(RamosAtividade *ramosAtividade);
 void removerRamoAtividade(RamoAtividade *ramoAtividade);
-//void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas);
+void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas);
 void editarRamosAtividade(RamosAtividade *ramosAtividade);
 void listarRamosAtividade(RamosAtividade ramosAtividade);
 int obterPosicaoRamoAtividade(char nome[], RamosAtividade ramosAtividade);

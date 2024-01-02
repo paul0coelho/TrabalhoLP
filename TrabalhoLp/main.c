@@ -38,11 +38,11 @@ void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *
                 puts("");
                 break;
             case 1:
-                menuEmpresas(empresas, ramosAtividade);
+                menuEmpresas(empresas, ramosAtividade, comentarios);
                 puts("");
                 break;
             case 2:
-                menuRamosAtividade(ramosAtividade);
+                menuRamosAtividade(ramosAtividade, empresas);
                 puts("");
                 break;
             case 3:
@@ -61,7 +61,7 @@ void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *
     } while (opcao != 0);
 }
 
-void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade) {
+void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
     int opcao;
 
     do {
@@ -84,7 +84,7 @@ void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade) {
                 puts("");
                 break;
             case 2:
-                //removerEmpresa(empresas);
+                removerEmpresas(empresas, comentarios);
                 break;
             case 3:
                 editarEmpresa(empresas);
@@ -104,7 +104,7 @@ void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade) {
     } while (opcao != 0);
 }
 
-void menuRamosAtividade(RamosAtividade *ramosAtividade) {
+void menuRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
     int opcao;
 
     do {
@@ -127,7 +127,7 @@ void menuRamosAtividade(RamosAtividade *ramosAtividade) {
                 puts("");
                 break;
             case 2:
-                //removerRamoDeAtividade(ramosAtividade);
+                removerRamosAtividade(ramosAtividade, empresas);
                 break;
             case 3:
                 editarRamoAtividade(ramosAtividade);

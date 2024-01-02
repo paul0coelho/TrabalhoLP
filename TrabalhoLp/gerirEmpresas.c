@@ -4,6 +4,7 @@
 
 #include "gerirEmpresas.h"
 #include "gerirRamosAtividade.h"
+#include "gerirComentarios.h"
 #include "input.h"
 
 /**
@@ -293,7 +294,7 @@ void removerEmpresa(Empresa *empresa) {
  * @param mercados apontador para a struct Mercados
  * @param comissões apontador para a struct Comissoes
  */
-/**
+
 void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
     int i, NIF, numero;
 
@@ -316,4 +317,3 @@ void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
         puts(EMPRESA_NAO_EXISTE);
     }
 }
-*/

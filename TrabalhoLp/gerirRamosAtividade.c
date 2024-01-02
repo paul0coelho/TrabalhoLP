@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "gerirRamosAtividade.h" 
+#include "gerirEmpresas.h"
 #include "input.h"
 
 /**
@@ -240,12 +241,12 @@ void removerRamoAtividade(RamoAtividade *ramoAtividade) {
  * @param mercados apontador para a struct Mercados
  * @param comissões apontador para a struct Comissoes
  */
-/**
+
 void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
     int i, numero;
     char ramoAtividade[MAX_RAMO];
 
-    ramoAtividade = lerString(ramoAtividade, MAX_RAMO, MSG_OBTER_RAMO);
+    lerString(ramoAtividade, MAX_RAMO, MSG_OBTER_RAMO);
 
     if (procurarRamoAtividade(*ramosAtividade, ramoAtividade) == 1) {
 
@@ -268,4 +269,3 @@ void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
         puts(RAMO_NAO_EXISTE);
     }
 }
-*/
