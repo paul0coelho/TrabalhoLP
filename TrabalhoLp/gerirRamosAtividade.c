@@ -17,6 +17,7 @@
 void imprimirRamoAtividade(RamoAtividade ramoAtividade) {
 
     printf("\tNome: %s\n", ramoAtividade.nome);
+    printf("\tAtivo: %d\n", ramoAtividade.estado);
     puts(BARRA);
 
 }
@@ -261,7 +262,6 @@ void removerRamoAtividade(RamoAtividade *ramoAtividade) {
  * @param mercados apontador para a struct Mercados
  * @param comissões apontador para a struct Comissoes
  */
-
 void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
     int i, numero;
     char ramoAtividade[MAX_RAMO];
@@ -269,22 +269,26 @@ void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
     lerString(ramoAtividade, MAX_RAMO, MSG_OBTER_RAMO);
 
     if (procurarRamoAtividade(*ramosAtividade, ramoAtividade) == 1) {
-
+        int usadoPorEmpresa = 0;
         for (i = 0; i < empresas->contador; i++) {
             if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
-                removerRamoAtividade(&(*ramosAtividade).ramoAtividade[numero]);
-                return;
+                usadoPorEmpresa = 1;
             }
         }
 
-        numero = obterPosicaoRamoAtividade(ramoAtividade, *ramosAtividade);
-        for (i = numero; i < ramosAtividade->contador - 1; i++) {
-            ramosAtividade->ramoAtividade[i] = ramosAtividade->ramoAtividade[i + 1];
-        }
+        if (usadoPorEmpresa == 0) {
+            numero = obterPosicaoRamoAtividade(ramoAtividade, *ramosAtividade);
 
-        apagarDadosRamoAtividade(&ramosAtividade->ramoAtividade[i]);
-        ramosAtividade->contador--;
-        puts(RAMO_REMOVIDO_SUCESSO);
+            for (i = numero; i < ramosAtividade->contador - 1; i++) {
+                ramosAtividade->ramoAtividade[i] = ramosAtividade->ramoAtividade[i + 1];
+            }
+
+            apagarDadosRamoAtividade(&ramosAtividade->ramoAtividade[i]);
+            ramosAtividade->contador--;
+            puts(RAMO_REMOVIDO_SUCESSO);
+        } else {
+            removerRamoAtividade(&(*ramosAtividade).ramoAtividade[numero]);
+        }
     } else {
         puts(RAMO_NAO_EXISTE);
     }

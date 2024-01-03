@@ -19,6 +19,7 @@ void imprimirEmpresas(Empresa empresa) {
     printf("\tRua: %s\n", empresa.rua);
     printf("\tLocalidade: %s\n", empresa.localidade);
     printf("\tCódigo Postal: %s\n", empresa.codPostal);
+    printf("\tAtivo: %d\n", empresa.estado);
     puts(BARRA);
 
 }
