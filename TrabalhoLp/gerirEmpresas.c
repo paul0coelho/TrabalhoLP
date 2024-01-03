@@ -58,6 +58,25 @@ int procurarEmpresa(Empresas empresas, int NIF) {
 }
 
 /**
+ * @brief Esta função verifica se a empresa existe nos registos das Empresas
+ * 
+ * @param empresas struct Empresas
+ * @param NIF
+ * @return 1 se a empresa existir e 0 se ela não existir
+ */
+
+int procurarEmpresaNome(Empresas empresas, char nome[]) {
+    int i;
+    for (i = 0; i < empresas.contador; i++) {
+        if (strcmp(empresas.empresa[i].nomeEmpresa,nome) == 0) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+/**
  * @brief Procura se uma empresa existe, caso se confirme retorna a posição no registo Empresas, se não existir retorna -1
  * 
  * @param NIF
@@ -334,5 +353,63 @@ void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
         }
     } else {
         puts(EMPRESA_NAO_EXISTE);
+    }
+}
+
+/**
+ * @brief Cria um novo NIF de Empresa
+ * Insere um novo registo em Empresas e o contador aumenta por 1
+ * 
+ * @param empresas apontador para struct Empresas
+ * @return -1 se o NIF já existir ou retorna o número do contador se os dados foram registados com sucesso
+ */
+int registarComentario(Comentarios *comentarios, Empresas *empresas) {
+    char titulo[MAX_TITULO], nomeEmpresa[MAX_NOME_EMPRESA];;
+
+    lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
+
+    if (procurarComentario(*comentarios, titulo) == 0) {
+
+        lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
+        lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
+
+        do {
+            char nomeEmpresa[MAX_NOME_EMPRESA];
+
+            lerString(nomeEmpresa, MAX_NOME_EMPRESA_COMENT, MSG_OBTER_NOME_EMPRESA_COMENT);
+
+            if (procurarEmpresaNome(*empresas, nomeEmpresa) == 0) {
+                strcpy(comentarios->comentario[comentarios->contador].nomeEmpresa, nomeEmpresa);
+            }
+        } while (procurarEmpresaNome(*empresas, nomeEmpresa) == 1);
+
+        strcpy(comentarios->comentario[comentarios->contador].titulo, titulo);
+        lerString(comentarios->comentario[comentarios->contador].texto, MAX_COMENTARIO, MSG_OBTER_TEXTO);
+        comentarios->comentario[comentarios->contador].estado = 1;
+
+        return comentarios->contador++;
+    }
+    return -1;
+}
+
+/**
+ * @brief Verifica se o número do contador e do tamanho são iguais, se sim chama a função expandirComentarios()
+ * Caso o contador seja menor que o tamanho verifica-se se o registo do comentário correu bem, caso não corresse retorna -1 e aparece uma mensagem (COMENTARIO_EXISTE)
+ * 
+ * @param comentarios apontador para a struct Comentarios
+ */
+void registarComentarios(Comentarios *comentarios, Empresas *empresas) {
+    if (comentarios->contador == comentarios->tamanho) {
+        expandirComentarios(comentarios);
+    }
+
+    if (comentarios->contador < comentarios->tamanho) {
+        if (registarComentario(comentarios, empresas) == -1) {
+            puts(COMENTARIO_EXISTE);
+        } else {
+            puts(COMENTARIO_REGISTADO_SUCESSO);
+        }
+    } else {
+        puts(COMENTARIO_LISTA_CHEIA);
     }
 }

@@ -145,31 +145,7 @@ void libertarComentarios(Comentarios *comentarios) {
 
 }
 
-/**
- * @brief Cria um novo NIF de Empresa
- * Insere um novo registo em Empresas e o contador aumenta por 1
- * 
- * @param empresas apontador para struct Empresas
- * @return -1 se o NIF já existir ou retorna o número do contador se os dados foram registados com sucesso
- */
-int registarComentario(Comentarios *comentarios) {
-    char titulo[MAX_TITULO];
 
-    lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
-
-    if (procurarComentario(*comentarios, titulo) == 0) {
-
-        lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
-        lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
-        lerString(comentarios->comentario[comentarios->contador].nomeEmpresa, MAX_NOME_EMPRESA_COMENT, MSG_OBTER_NOME_EMPRESA_COMENT);
-        strcpy(comentarios->comentario[comentarios->contador].titulo, titulo);
-        lerString(comentarios->comentario[comentarios->contador].texto, MAX_COMENTARIO, MSG_OBTER_TEXTO);
-        comentarios->comentario[comentarios->contador].estado = 1;
-
-        return comentarios->contador++;
-    }
-    return -1;
-}
 
 /**
  * @brief Esta função atualiza os dados de uma empresa
@@ -195,27 +171,7 @@ void expandirComentarios(Comentarios *comentarios) {
     }
 }
 
-/**
- * @brief Verifica se o número do contador e do tamanho são iguais, se sim chama a função expandirComentarios()
- * Caso o contador seja menor que o tamanho verifica-se se o registo do comentário correu bem, caso não corresse retorna -1 e aparece uma mensagem (COMENTARIO_EXISTE)
- * 
- * @param comentarios apontador para a struct Comentarios
- */
-void registarComentarios(Comentarios *comentarios) {
-    if (comentarios->contador == comentarios->tamanho) {
-        expandirComentarios(comentarios);
-    }
 
-    if (comentarios->contador < comentarios->tamanho) {
-        if (registarComentario(comentarios) == -1) {
-            puts(COMENTARIO_EXISTE);
-        } else {
-            puts(COMENTARIO_REGISTADO_SUCESSO);
-        }
-    } else {
-        puts(COMENTARIO_LISTA_CHEIA);
-    }
-}
 
 /**
  * @brief Esta função lista os comentários existentes

@@ -207,7 +207,7 @@ void menuUser(Empresas *empresas, Comentarios *comentarios) {
                 puts("");
                 break;
             case 3:
-                registarComentario(comentarios);
+                registarComentario(comentarios, empresas);
                 guardarComentarios(comentarios, COMENTS_DB_FILE);
                 puts("");
                 break;

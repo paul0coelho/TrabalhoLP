@@ -132,6 +132,7 @@ void guardarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro);
 void imprimirEmpresas(Empresa empresa);
 void apagarDadosEmpresas(Empresa *empresa);
 int procurarEmpresa(Empresas empresas, int NIF);
+int procurarEmpresaNome(Empresas empresas, char nome[]);
 void carregarEmpresas(Empresas *empresas, char *ficheiro);
 void libertarEmpresas(Empresas *empresas);
 int registarEmpresa(Empresas *empresas, RamosAtividade *ramosAtividade);
@@ -146,6 +147,7 @@ void listarEmpresas(Empresas empresas);
 int obterPosicaoEmpresa(int NIF, Empresas empresas);
 void guardarEmpresas(Empresas *comentarios, char *ficheiro);
 void pesquisarEmpresas(Empresas *empresas);
-
+int registarComentario(Comentarios *comentarios, Empresas *empresas);
+void registarComentarios(Comentarios *comentarios, Empresas *empresas);
 #endif /* EMPRESAS_H */
 
