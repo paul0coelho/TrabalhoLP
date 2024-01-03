@@ -4,7 +4,7 @@
  */
 
 /* 
- * File:   empresas.h
+ * File:   gerirEmpresas.h
  * Author: paulo
  *
  * Created on 19 de dezembro de 2023, 14:37

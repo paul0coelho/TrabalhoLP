@@ -4,7 +4,7 @@
  */
 
 /* 
- * File:   ramosAtividade.h
+ * File:   gerirRamosAtividade.h
  * Author: paulo
  *
  * Created on 19 de dezembro de 2023, 14:40
