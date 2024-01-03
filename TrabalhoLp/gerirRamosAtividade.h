@@ -13,8 +13,6 @@
 #ifndef RAMOSATIVIDADE_H
 #define RAMOSATIVIDADE_H
 
-#include "gerirEmpresas.h"
-
 /**
  * @brief Macros usadas na gestão de ramos de atividade 
  */

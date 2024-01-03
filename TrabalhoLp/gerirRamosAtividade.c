@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "gerirRamosAtividade.h"
 #include "gerirEmpresas.h" 
 #include "input.h"
 
@@ -272,7 +271,7 @@ void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
     if (procurarRamoAtividade(*ramosAtividade, ramoAtividade) == 1) {
 
         for (i = 0; i < empresas->contador; i++) {
-            if (strcmp(empresas->empresa[i].ramoAtividade.nome, ramoAtividade) == 0) {
+            if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
                 removerRamoAtividade(&(*ramosAtividade).ramoAtividade[numero]);
                 return;
             }
