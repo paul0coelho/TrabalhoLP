@@ -179,7 +179,7 @@ void editarEmpresa(Empresa *empresa) {
  */
 void editarEmpresas(Empresas *empresas) {
     int NIF = obterPosicaoEmpresa(obterInt(MIN_NIF_EMPRESA, MAX_NIF_EMPRESA, MSG_OBTER_NIF_EMPRESA), *empresas);
-   
+
     if (NIF != -1) {
         editarEmpresa(&(*empresas).empresa[NIF]);
         puts(EMPRESA_EDITADA_SUCESSO);
@@ -213,7 +213,7 @@ void registarEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade) {
     }
 
     if (empresas->contador < empresas->tamanho) {
-        if (registarEmpresa(empresas,ramosAtividade) == -1) {
+        if (registarEmpresa(empresas, ramosAtividade) == -1) {
             puts(EMPRESA_EXISTE);
         } else {
             puts(EMPRESA_REGISTADA_SUCESSO);
@@ -277,12 +277,15 @@ void pesquisarEmpresas(Empresas *empresas) {
     for (int i = 0; i < empresas->contador; i++) {
         if (empresas->empresa[i].estado) {
             if (strcmp(empresas->empresa[i].nomeEmpresa, nome) == 0) {
+                printf(EMPRESAS_ENCONTRADAS);
                 imprimirEmpresas(empresas->empresa[i]);
                 return;
             } else if (strcmp(empresas->empresa[i].localidade, localidade) == 0) {
+                printf(EMPRESAS_ENCONTRADAS);
                 imprimirEmpresas(empresas->empresa[i]);
                 return;
-                } else if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
+            } else if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
+                printf(EMPRESAS_ENCONTRADAS);
                 imprimirEmpresas(empresas->empresa[i]);
                 return;
             } else {
