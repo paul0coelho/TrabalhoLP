@@ -15,6 +15,7 @@
 #include "funcoes.h"
 #include "input.h"
 #include "gerirComentarios.h"
+#include "gerirRamosAtividade.h"
 #include "gerirEmpresas.h"
 
 /*

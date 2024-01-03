@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "gerirRamosAtividade.h"
 #include "gerirEmpresas.h" 
 #include "input.h"
 

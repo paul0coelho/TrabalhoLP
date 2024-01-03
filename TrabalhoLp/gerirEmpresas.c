@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "gerirEmpresas.h"
 #include "gerirComentarios.h"
+#include "gerirRamosAtividade.h"
+#include "gerirEmpresas.h"
 #include "input.h"
 
 /**
@@ -14,7 +15,7 @@
 void imprimirEmpresas(Empresa empresa) {
 
     printf("\tNome: %s\n", empresa.nomeEmpresa);
-    printf("\tRamo de atividade: %s\n", empresa.ramoAtividade.nome);
+    printf("\tRamo de atividade: %s\n", empresa.ramoAtividade);
     printf("\tNIF: %d\n", empresa.NIF);
     printf("\tRua: %s\n", empresa.rua);
     printf("\tLocalidade: %s\n", empresa.localidade);
@@ -140,13 +141,13 @@ int registarEmpresa(Empresas *empresas, RamosAtividade *ramosAtividade) {
         lerString(empresas->empresa[empresas->contador].nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
 
         do {
-            lerString(empresas->empresa[empresas->contador].ramoAtividade.nome, MAX_NOME_RAMO_ATIVIDADE, MSG_OBTER_RAMO_ATIVIDADE);
+            lerString(empresas->empresa[empresas->contador].ramoAtividade, MAX_NOME_RAMO_ATIVIDADE, MSG_OBTER_RAMO_ATIVIDADE);
 
-            if (procurarRamoAtividade(*ramosAtividade, empresas->empresa[empresas->contador].ramoAtividade.nome) == 0) {
+            if (procurarRamoAtividade(*ramosAtividade, empresas->empresa[empresas->contador].ramoAtividade) == 0) {
                 printf("O ramo de atividade '%s' não existe. Por favor, insira um ramo de atividade válido.\n", empresas->empresa[empresas->contador].ramoAtividade);
             }
 
-        } while (procurarRamoAtividade(*ramosAtividade, empresas->empresa[empresas->contador].ramoAtividade.nome) != 1);
+        } while (procurarRamoAtividade(*ramosAtividade, empresas->empresa[empresas->contador].ramoAtividade) != 1);
 
         lerString(empresas->empresa[empresas->contador].rua, MAX_RUA, MSG_OBTER_RUA);
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
@@ -282,7 +283,7 @@ void pesquisarEmpresas(Empresas *empresas) {
             } else if (strcmp(empresas->empresa[i].localidade, localidade) == 0) {
                 imprimirEmpresas(empresas->empresa[i]);
                 return;
-                } else if (strcmp(empresas->empresa[i].ramoAtividade.nome, ramoAtividade) == 0) {
+                } else if (strcmp(empresas->empresa[i].ramoAtividade, ramoAtividade) == 0) {
                 imprimirEmpresas(empresas->empresa[i]);
                 return;
             } else {
