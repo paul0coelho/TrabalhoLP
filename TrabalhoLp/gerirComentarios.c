@@ -68,7 +68,7 @@ int procurarComentario(Comentarios comentarios, char titulo[]) {
  * @return 1 se a empresa existir e 0 se ela não existir
  */
 
-int procurarComentarioEmpresa(Comentarios comentarios, char nomeEmpresa[]) {
+int procurarComentarioNomeEmpresa(Comentarios comentarios, char nomeEmpresa[]) {
     int i;
     for (i = 0; i < comentarios.contador; i++) {
         if (strcmp(comentarios.comentario[i].nomeEmpresa, nomeEmpresa) == 0) {

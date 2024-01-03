@@ -52,9 +52,9 @@
 #define MSG_OBTER_NOME_EMPRESA "\nInsira o nome da empresa:"
 #define MAX_NOME_EMPRESA 40
 
-#define MSG_OBTER_NIF_EMPRESA "\nInsira o NIF da empresa (1000000000-1999999999):"
-#define MAX_NIF_EMPRESA 1999999999
-#define MIN_NIF_EMPRESA 1000000000
+#define MSG_OBTER_NIF_EMPRESA "\nInsira o NIF da empresa (100000000-999999999):"
+#define MAX_NIF_EMPRESA 999999999
+#define MIN_NIF_EMPRESA 100000000
 
 #define MSG_OBTER_RUA "\nInsira a rua da empresa:"
 #define MAX_RUA 40

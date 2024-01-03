@@ -208,6 +208,7 @@ void menuUser(Empresas *empresas, Comentarios *comentarios) {
                 break;
             case 3:
                 registarComentario(comentarios);
+                guardarComentarios(comentarios, COMENTS_DB_FILE);
                 puts("");
                 break;
             default:
@@ -249,8 +250,8 @@ void menuPrincipal(Empresas *empresas, RamosAtividade *ramosAtividade, Comentari
 
 int main() {
 
-    Empresas empresas;
     Comentarios comentarios;
+    Empresas empresas;
     RamosAtividade ramosAtividade;
 
     carregarEmpresas(&empresas, EMP_DB_FILE);
