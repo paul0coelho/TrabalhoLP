@@ -203,7 +203,7 @@ void menuUser(Empresas *empresas, Comentarios *comentarios) {
                 puts("");
                 break;
             case 2:
-                //classificarEmpresa(empresas);
+                classificarEmpresa(empresas);
                 puts("");
                 break;
             case 3:

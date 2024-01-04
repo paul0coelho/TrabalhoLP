@@ -414,3 +414,21 @@ void registarComentarios(Comentarios *comentarios, Empresas *empresas) {
         puts(COMENTARIO_LISTA_CHEIA);
     }
 }
+
+void classificarEmpresa(Empresas *empresas) {
+    char nome[MAX_NOME_EMPRESA];
+    lerString(nome, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
+    for (int i = 0; i < empresas->contador; i++) {
+        if (strcmp(empresas->empresa[i].nomeEmpresa, nome) == 0 && empresas->empresa[i].estado == 1) {
+            int classificacao = obterInt(MIN_CLASSIFICACAO,MAX_CLASSIFICACAO,MSG_OBTER_CLASSIFICACAO);
+
+            if (classificacao >= 0 && classificacao <= 5) {
+                empresas->empresa[i].classificacoes[empresas->empresa[i].numClassificacoes] = classificacao;
+                empresas->empresa[i].numClassificacoes++;
+                puts(CLASSIFICACAO_REGISTADA);
+            }else{
+                puts(CLASSIFICACAO_INVALIDA);
+            }
+        }
+    }
+}

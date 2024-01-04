@@ -73,6 +73,14 @@
 #define EMPRESA_EDITADA_SUCESSO   "\n------ EMPRESA ATUALIZADA COM SUCESSO ------\n\n"
 #define EMPRESA_REMOVIDA_SUCESSO  "\n------ EMPRESA REMOVIDA COM SUCESSO ------\n\n"
 
+#define MSG_OBTER_CLASSIFICACAO "Inisira a classificacao desejada:"
+#define MIN_CLASSIFICACAO 0
+#define MAX_CLASSIFICACAO 5
+#define MAX_CLASSIFICACOES 20
+
+#define CLASSIFICACAO_REGISTADA "\n------ Classificacao registada com sucesso ------\n\n"
+#define CLASSIFICACAO_INVALIDA "\n------ Classificacao registada com sucesso ------\n\n"
+
 #define BARRA "----------------------------------------\n"
 
 /**
@@ -100,6 +108,8 @@ typedef struct {
     char localidade[MAX_LOCALIDADE];
     char codPostal[MAX_COD_POSTAL];
     int estado;
+    int classificacoes[MAX_CLASSIFICACOES];
+    int numClassificacoes;
 } Empresa;
 
 typedef struct {
@@ -149,5 +159,6 @@ void guardarEmpresas(Empresas *comentarios, char *ficheiro);
 void pesquisarEmpresas(Empresas *empresas);
 int registarComentario(Comentarios *comentarios, Empresas *empresas);
 void registarComentarios(Comentarios *comentarios, Empresas *empresas);
+void classificarEmpresa(Empresas *empresas);
 #endif /* EMPRESAS_H */
 
