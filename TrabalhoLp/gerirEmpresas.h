@@ -64,7 +64,7 @@
 #define MAX_LOCALIDADE 40
 
 #define MSG_OBTER_COD_POSTAL "\nInsira o codigo postal da empresa:"
-#define MAX_COD_POSTAL 8
+#define MAX_COD_POSTAL 9
 
 
 #define EMPRESAS_TAM_INICIAL 2
