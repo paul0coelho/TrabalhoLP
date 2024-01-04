@@ -19,7 +19,12 @@ void imprimirEmpresas(Empresa empresa) {
     printf("\tRua: %s\n", empresa.rua);
     printf("\tLocalidade: %s\n", empresa.localidade);
     printf("\tCódigo Postal: %s\n", empresa.codPostal);
-    printf("\tAtivo: %d\n", empresa.estado);
+    printf("\tClassificações: ");
+
+    for (int i = 0; i < empresa.numClassificacoes; i++) {
+        printf("%d ", empresa.classificacoes[i]);
+    }
+    printf("\n\tAtivo: %d\n", empresa.estado);
     puts(BARRA);
 
 }
@@ -69,7 +74,7 @@ int procurarEmpresa(Empresas empresas, int NIF) {
 int procurarEmpresaNome(Empresas empresas, char nome[]) {
     int i;
     for (i = 0; i < empresas.contador; i++) {
-        if (strcmp(empresas.empresa[i].nomeEmpresa,nome) == 0) {
+        if (strcmp(empresas.empresa[i].nomeEmpresa, nome) == 0) {
             return 1;
         }
     }
@@ -365,7 +370,8 @@ void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
  * @return -1 se o NIF já existir ou retorna o número do contador se os dados foram registados com sucesso
  */
 int registarComentario(Comentarios *comentarios, Empresas *empresas) {
-    char titulo[MAX_TITULO], nomeEmpresa[MAX_NOME_EMPRESA];;
+    char titulo[MAX_TITULO], nomeEmpresa[MAX_NOME_EMPRESA];
+    ;
 
     lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
 
@@ -420,13 +426,13 @@ void classificarEmpresa(Empresas *empresas) {
     lerString(nome, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
     for (int i = 0; i < empresas->contador; i++) {
         if (strcmp(empresas->empresa[i].nomeEmpresa, nome) == 0 && empresas->empresa[i].estado == 1) {
-            int classificacao = obterInt(MIN_CLASSIFICACAO,MAX_CLASSIFICACAO,MSG_OBTER_CLASSIFICACAO);
+            int classificacao = obterInt(MIN_CLASSIFICACAO, MAX_CLASSIFICACAO, MSG_OBTER_CLASSIFICACAO);
 
             if (classificacao >= 0 && classificacao <= 5) {
                 empresas->empresa[i].classificacoes[empresas->empresa[i].numClassificacoes] = classificacao;
                 empresas->empresa[i].numClassificacoes++;
                 puts(CLASSIFICACAO_REGISTADA);
-            }else{
+            } else {
                 puts(CLASSIFICACAO_INVALIDA);
             }
         }
