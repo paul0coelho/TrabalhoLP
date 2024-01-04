@@ -20,7 +20,6 @@
 /*
  * 
  */
-
 void menuEmpresas(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
     int opcao;
 

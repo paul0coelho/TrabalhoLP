@@ -371,31 +371,22 @@ void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
  */
 int registarComentario(Comentarios *comentarios, Empresas *empresas) {
     char titulo[MAX_TITULO], nomeEmpresa[MAX_NOME_EMPRESA];
-    ;
 
+    lerString(nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
     lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
 
-    if (procurarComentario(*comentarios, titulo) == 0) {
+    if (procurarComentario(*comentarios, titulo) == 0 && procurarEmpresaNome(*empresas, nomeEmpresa) == 1) {
 
         lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
         lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
-
-        do {
-            char nomeEmpresa[MAX_NOME_EMPRESA];
-
-            lerString(nomeEmpresa, MAX_NOME_EMPRESA_COMENT, MSG_OBTER_NOME_EMPRESA_COMENT);
-
-            if (procurarEmpresaNome(*empresas, nomeEmpresa) == 0) {
-                strcpy(comentarios->comentario[comentarios->contador].nomeEmpresa, nomeEmpresa);
-            }
-        } while (procurarEmpresaNome(*empresas, nomeEmpresa) == 1);
-
+        strcpy(comentarios->comentario[comentarios->contador].nomeEmpresa, nomeEmpresa);
         strcpy(comentarios->comentario[comentarios->contador].titulo, titulo);
         lerString(comentarios->comentario[comentarios->contador].texto, MAX_COMENTARIO, MSG_OBTER_TEXTO);
         comentarios->comentario[comentarios->contador].estado = 1;
 
         return comentarios->contador++;
     }
+    printf(EMPRESA_NAO_EXISTE);
     return -1;
 }
 
