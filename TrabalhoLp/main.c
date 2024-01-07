@@ -254,15 +254,7 @@ int main() {
     Comentarios comentarios;
     RamosAtividade ramosAtividade;
 
-    carregarEmpresas(&empresas, EMP_DB_FILE);
-    carregarComentarios(&comentarios, COMENTS_DB_FILE);
-    carregarRamosAtividade(&ramosAtividade, RAMOS_DB_FILE);
-
     menuPrincipal(&empresas, &ramosAtividade, &comentarios);
-
-    libertarEmpresas(&empresas);
-    libertarComentarios(&comentarios);
-    libertarRamosAtividade(&ramosAtividade);
 
     return (EXIT_SUCCESS);
 }
