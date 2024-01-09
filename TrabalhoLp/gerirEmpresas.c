@@ -99,6 +99,22 @@ int obterPosicaoEmpresa(int NIF, Empresas empresas) {
 }
 
 /**
+ * @brief Procura se uma empresa existe, caso se confirme retorna a posição no registo Empresas, se não existir retorna -1
+ * 
+ * @param NIF
+ * @param empresas struct Empresas
+ * @return i se a empresa existir, -1 caso não exista
+ */
+int obterPosicaoNomeEmpresa(Empresas empresas, char nome[]) {
+    for (int i = 0; i < empresas.contador; i++) {
+        if (empresas.empresa[i].nomeEmpresa == nome) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+/**
  * @brief Esta função verifica se o ficheiro existe(rb), senão cria-o (wb)
  * Com a função fread é retornado o número de itens completos lidos pela função
  * 
@@ -375,7 +391,9 @@ int registarComentario(Comentarios *comentarios, Empresas *empresas) {
     lerString(nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
     lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
 
-    if (procurarComentario(*comentarios, titulo) == 0 && procurarEmpresaNome(*empresas, nomeEmpresa) == 1) {
+    int indiceEmpresa = obterPosicaoNomeEmpresa(*empresas, nomeEmpresa);
+    
+    if (procurarComentario(*comentarios, titulo) == 0 && procurarEmpresaNome(*empresas, nomeEmpresa) == 1 && empresas->empresa[indiceEmpresa].estado == 1) {
 
         lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
         lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
@@ -386,6 +404,7 @@ int registarComentario(Comentarios *comentarios, Empresas *empresas) {
 
         return comentarios->contador++;
     }
+    
     printf(EMPRESA_NAO_EXISTE);
     return -1;
 }
@@ -427,5 +446,44 @@ void classificarEmpresa(Empresas *empresas) {
                 puts(CLASSIFICACAO_INVALIDA);
             }
         }
+    }
+}
+
+void relatorioClassificacoes(Empresas *empresas){
+
+    float medias[empresas->contador];
+
+    //Fazer a media
+    for (int i = 0; i < empresas->contador; i++) {
+        float soma = 0;
+        int totalClassificacoes = 0;
+
+
+        for(int j = 0; j <empresas->empresa[i].numClassificacoes; j++){
+            soma += empresas->empresa[i].classificacoes[j];
+            totalClassificacoes++;
+        }
+        // Verificar se a empresa tem alguma classificação
+        if (totalClassificacoes > 0) {
+            medias[i] = soma / totalClassificacoes;
+        } else {
+            medias[i] = -1;
+        }
+    }
+
+    //ordenar array ordem decrescente
+    for (int i = 0; i < empresas->contador - 1; i++) {
+        for (int j = 0; j < empresas->contador - i - 1; j++) {
+            if (medias[j] < medias[j + 1]) {
+                float temp = medias[j];
+                medias[j] = medias[j+1];
+                medias[j + 1] = temp; 
+            }
+        }
+    }
+    //Imprimir a percentagem
+    printf("Empresas ordenadas por média de classificações:\n");
+    for (int i = 0; i < empresas->contador; i++) {
+        printf("Empresa %d: %.2f\n", i + 1, medias[i]);
     }
 }

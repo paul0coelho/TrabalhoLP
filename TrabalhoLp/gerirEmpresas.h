@@ -160,5 +160,7 @@ void pesquisarEmpresas(Empresas *empresas);
 int registarComentario(Comentarios *comentarios, Empresas *empresas);
 void registarComentarios(Comentarios *comentarios, Empresas *empresas);
 void classificarEmpresa(Empresas *empresas);
+void relatorioClassificacoes(Empresas *empresas);
+int obterPosicaoNomeEmpresa(Empresas empresas, char nome[]);
 #endif /* EMPRESAS_H */
 

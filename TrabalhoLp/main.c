@@ -140,6 +140,43 @@ void menuComentarios(Comentarios *comentarios) {
     } while (opcao != 0);
 }
 
+void menuRelatorios(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios){
+    int opcao;
+
+    do {
+        printf("\t-------- RELATORIOS --------\n");
+        printf("\t1 - Visualizar relatório de classificacoes\n");
+        printf("\t2 - Visualizar relatório de\n");
+        printf("\t3 - Visualizar relatório de\n");
+        printf("\t0 - Sair\n");
+
+        opcao = obterInt(0, 3, "\nOpção: ");
+        switch (opcao) {
+            case 0:
+                puts("");
+                break;
+            case 1:
+                relatorioClassificacoes(empresas);
+                puts("");
+                break;
+            case 2:
+                //relatorioClassificacoes2()
+                puts("");
+                break;
+            case 3:
+                //relatorioClassificacoes3()
+                puts("");
+                break;
+            default:
+                printf("Insira uma opção válida");
+                puts("");
+                break;
+        }
+ 
+    }while (opcao!=0);
+
+}
+
 void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *comentarios) {
     int opcao;
 
@@ -151,7 +188,7 @@ void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *
         printf("\t4 - Visualizar Relatórios\n");
         printf("\t0 - Sair\n");
 
-        opcao = obterInt(0, 3, "\nOpção: ");
+        opcao = obterInt(0, 4, "\nOpção: ");
 
         switch (opcao) {
             case 0:
@@ -170,7 +207,7 @@ void menuAdmin(Empresas *empresas, RamosAtividade *ramosAtividade, Comentarios *
                 puts("");
                 break;
             case 4:
-                //relatorios();
+                menuRelatorios(empresas, ramosAtividade, comentarios);
                 break;
             default:
                 printf("Insira uma opção válida");
