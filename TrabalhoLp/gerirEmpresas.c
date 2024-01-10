@@ -18,7 +18,7 @@ void imprimirEmpresas(Empresa empresa) {
     printf("\tNIF: %d\n", empresa.NIF);
     printf("\tRua: %s\n", empresa.rua);
     printf("\tLocalidade: %s\n", empresa.localidade);
-    printf("\tCódigo Postal: %s - %s\n", empresa.codigoPostal.prefixo, empresa.codigoPostal.sufixo);
+    printf("\tCódigo Postal: %d - %d\n", empresa.codigoPostal.prefixo, empresa.codigoPostal.sufixo);
     printf("\tClassificações: ");
 
     for (int i = 0; i < empresa.numClassificacoes; i++) {
