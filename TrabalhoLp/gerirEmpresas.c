@@ -18,7 +18,7 @@ void imprimirEmpresas(Empresa empresa) {
     printf("\tNIF: %d\n", empresa.NIF);
     printf("\tRua: %s\n", empresa.rua);
     printf("\tLocalidade: %s\n", empresa.localidade);
-    printf("\tCódigo Postal: %s\n", empresa.codPostal);
+    printf("\tCódigo Postal: %s - %s\n", empresa.codigoPostal.prefixo, empresa.codigoPostal.sufixo);
     printf("\tClassificações: ");
 
     for (int i = 0; i < empresa.numClassificacoes; i++) {
@@ -41,7 +41,7 @@ void apagarDadosEmpresas(Empresa *empresa) {
     strcpy(empresa->nomeEmpresa, "");
     strcpy(empresa->rua, "");
     strcpy(empresa->localidade, "");
-    strcpy(empresa->codPostal, "");
+    strcpy(empresa->codigoPostal, "");
 }
 
 /**
@@ -191,7 +191,8 @@ int registarEmpresa(Empresas *empresas, RamosAtividade *ramosAtividade) {
 
         lerString(empresas->empresa[empresas->contador].rua, MAX_RUA, MSG_OBTER_RUA);
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
-        lerString(empresas->empresa[empresas->contador].codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
+        empresas->empresa[empresas->contador].codigoPostal.prefixo = obterInt(MIN_COD_POSTAL_PREFIXO, MIN_COD_POSTAL_PREFIXO, MSG_OBTER_COD_POSTAL_PREFIXO);
+        empresas->empresa[empresas->contador].codigoPostal.sufixo = obterInt(MIN_COD_POSTAL_SUFIXO, MIN_COD_POSTAL_SUFIXO, MSG_OBTER_COD_POSTAL_SUFIXO);
         empresas->empresa[empresas->contador].estado = 1;
 
         return empresas->contador++;
@@ -209,7 +210,8 @@ void editarEmpresa(Empresa *empresa) {
     lerString((*empresa).nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
     lerString((*empresa).rua, MAX_RUA, MSG_OBTER_RUA);
     lerString((*empresa).localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
-    lerString((*empresa).codPostal, MAX_COD_POSTAL, MSG_OBTER_COD_POSTAL);
+    (*empresa).codigoPostal.prefixo = obterInt(MIN_COD_POSTAL_PREFIXO, MIN_COD_POSTAL_PREFIXO, MSG_OBTER_COD_POSTAL_PREFIXO);
+    (*empresa).codigoPostal.sufixo = obterInt(MIN_COD_POSTAL_SUFIXO, MIN_COD_POSTAL_SUFIXO, MSG_OBTER_COD_POSTAL_SUFIXO);
 }
 
 /**
@@ -392,7 +394,7 @@ int registarComentario(Comentarios *comentarios, Empresas *empresas) {
     lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
 
     int indiceEmpresa = obterPosicaoNomeEmpresa(*empresas, nomeEmpresa);
-    
+
     if (procurarComentario(*comentarios, titulo) == 0 && procurarEmpresaNome(*empresas, nomeEmpresa) == 1 && empresas->empresa[indiceEmpresa].estado == 1) {
 
         lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
@@ -404,7 +406,7 @@ int registarComentario(Comentarios *comentarios, Empresas *empresas) {
 
         return comentarios->contador++;
     }
-    
+
     printf(EMPRESA_NAO_EXISTE);
     return -1;
 }
@@ -449,7 +451,7 @@ void classificarEmpresa(Empresas *empresas) {
     }
 }
 
-void relatorioClassificacoes(Empresas *empresas){
+void relatorioClassificacoes(Empresas *empresas) {
 
     float medias[empresas->contador];
 
@@ -459,7 +461,7 @@ void relatorioClassificacoes(Empresas *empresas){
         int totalClassificacoes = 0;
 
 
-        for(int j = 0; j <empresas->empresa[i].numClassificacoes; j++){
+        for (int j = 0; j < empresas->empresa[i].numClassificacoes; j++) {
             soma += empresas->empresa[i].classificacoes[j];
             totalClassificacoes++;
         }
@@ -476,8 +478,8 @@ void relatorioClassificacoes(Empresas *empresas){
         for (int j = 0; j < empresas->contador - i - 1; j++) {
             if (medias[j] < medias[j + 1]) {
                 float temp = medias[j];
-                medias[j] = medias[j+1];
-                medias[j + 1] = temp; 
+                medias[j] = medias[j + 1];
+                medias[j + 1] = temp;
             }
         }
     }

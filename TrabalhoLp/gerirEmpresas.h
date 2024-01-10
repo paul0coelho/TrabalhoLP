@@ -14,6 +14,7 @@
 #define EMPRESAS_H
 
 #include "gerirComentarios.h"
+#include "funcoes.h"
 
 /**
  * @brief Macros usadas na gestão de ramos de atividade 
@@ -63,9 +64,13 @@
 #define MSG_OBTER_LOCALIDADE "\nInsira a localidade da empresa:"
 #define MAX_LOCALIDADE 40
 
-#define MSG_OBTER_COD_POSTAL "\nInsira o codigo postal da empresa:"
-#define MAX_COD_POSTAL 9
+#define MSG_OBTER_COD_POSTAL_PREFIXO "\nInsira o prefixo do codigo postal da empresa:"
+#define MIN_COD_POSTAL_PREFIXO 1000
+#define MAX_COD_POSTAL_SUFIXO 9999
 
+#define MSG_OBTER_COD_POSTAL_SUFIXO "\nInsira o sufixo do codigo postal da empresa:"
+#define MIN_COD_POSTAL_SUFIXO 100
+#define MAX_COD_POSTAL_SUFIXO 999
 
 #define EMPRESAS_TAM_INICIAL 2
 
@@ -106,7 +111,7 @@ typedef struct {
     int NIF;
     char rua[MAX_RUA];
     char localidade[MAX_LOCALIDADE];
-    char codPostal[MAX_COD_POSTAL];
+    CodigoPostal codigoPostal;
     int estado;
     int classificacoes[MAX_CLASSIFICACOES];
     int numClassificacoes;
