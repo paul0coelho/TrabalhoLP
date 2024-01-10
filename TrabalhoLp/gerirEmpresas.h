@@ -66,7 +66,7 @@
 
 #define MSG_OBTER_COD_POSTAL_PREFIXO "\nInsira o prefixo do codigo postal da empresa:"
 #define MIN_COD_POSTAL_PREFIXO 1000
-#define MAX_COD_POSTAL_SUFIXO 9999
+#define MAX_COD_POSTAL_PREFIXO 9999
 
 #define MSG_OBTER_COD_POSTAL_SUFIXO "\nInsira o sufixo do codigo postal da empresa:"
 #define MIN_COD_POSTAL_SUFIXO 100

@@ -41,7 +41,8 @@ void apagarDadosEmpresas(Empresa *empresa) {
     strcpy(empresa->nomeEmpresa, "");
     strcpy(empresa->rua, "");
     strcpy(empresa->localidade, "");
-    strcpy(empresa->codigoPostal, "");
+    empresa->codigoPostal.prefixo = 0;
+    empresa->codigoPostal.sufixo = 0;
 }
 
 /**
