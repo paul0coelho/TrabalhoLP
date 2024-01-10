@@ -108,7 +108,7 @@ int obterPosicaoEmpresa(int NIF, Empresas empresas) {
  */
 int obterPosicaoNomeEmpresa(Empresas empresas, char nome[]) {
     for (int i = 0; i < empresas.contador; i++) {
-        if (empresas.empresa[i].nomeEmpresa == nome) {
+        if (strcmp(empresas.empresa[i].nomeEmpresa, nome) == 0) {
             return i;
         }
     }
@@ -394,19 +394,25 @@ int registarComentario(Comentarios *comentarios, Empresas *empresas) {
     lerString(nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
     lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
 
-    if (procurarComentario(*comentarios, titulo) == 0 && procurarEmpresaNome(*empresas, nomeEmpresa) == 1) {
+    int indiceEmpresa = obterPosicaoNomeEmpresa(*empresas, nomeEmpresa);
 
-        lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
-        lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
-        strcpy(comentarios->comentario[comentarios->contador].nomeEmpresa, nomeEmpresa);
-        strcpy(comentarios->comentario[comentarios->contador].titulo, titulo);
-        lerString(comentarios->comentario[comentarios->contador].texto, MAX_COMENTARIO, MSG_OBTER_TEXTO);
-        comentarios->comentario[comentarios->contador].estado = 1;
+    if (procurarEmpresaNome(*empresas, nomeEmpresa) == 1 && empresas->empresa[indiceEmpresa].estado == 1) {
+        if(procurarComentario(*comentarios, titulo) == 0){
+            lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
+            lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
+            strcpy(comentarios->comentario[comentarios->contador].nomeEmpresa, nomeEmpresa);
+            strcpy(comentarios->comentario[comentarios->contador].titulo, titulo);
+            lerString(comentarios->comentario[comentarios->contador].texto, MAX_COMENTARIO, MSG_OBTER_TEXTO);
+            comentarios->comentario[comentarios->contador].estado = 1;
 
-        return comentarios->contador++;
+            return comentarios->contador++;
+        }else {
+            puts("Comentário já existe");
+        }
+    }else{
+        printf(EMPRESA_NAO_EXISTE); 
     }
 
-    printf(EMPRESA_NAO_EXISTE);
     return -1;
 }
 
