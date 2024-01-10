@@ -13,6 +13,8 @@
 #ifndef COMENTARIOS_H
 #define COMENTARIOS_H
 
+#include "funcoes.h"
+
 /**
  * @brief Macros usadas na gestão de comentários 
  */
@@ -51,7 +53,7 @@
 typedef struct {
     char nomeUtilizador[MAX_NOME_UTILIZADOR];
     char nomeEmpresa[MAX_NOME_EMPRESA_COMENT];
-    char email[MAX_EMAIL];
+    EnderecoEmail enderecoEmail;
     char titulo[MAX_TITULO];
     char texto[MAX_COMENTARIO];
     int estado;

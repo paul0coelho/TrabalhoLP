@@ -64,14 +64,6 @@
 #define MSG_OBTER_LOCALIDADE "\nInsira a localidade da empresa:"
 #define MAX_LOCALIDADE 40
 
-#define MSG_OBTER_COD_POSTAL_PREFIXO "\nInsira o prefixo do codigo postal da empresa:"
-#define MIN_COD_POSTAL_PREFIXO 1000
-#define MAX_COD_POSTAL_PREFIXO 9999
-
-#define MSG_OBTER_COD_POSTAL_SUFIXO "\nInsira o sufixo do codigo postal da empresa:"
-#define MIN_COD_POSTAL_SUFIXO 100
-#define MAX_COD_POSTAL_SUFIXO 999
-
 #define EMPRESAS_TAM_INICIAL 2
 
 #define EMPRESA_REGISTADA_SUCESSO "\n------ EMPRESA REGISTADA COM SUCESSO ------\n\n"

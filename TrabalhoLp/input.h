@@ -22,9 +22,5 @@ char obterChar(char *msg);
 
 void lerString(char *string, unsigned int tamanho, char *msg);
 
-int validarEmail( const char * email );
-
-int verificaData (int dia, int mes, int ano);
-
 #endif /* INPUT_H */
 

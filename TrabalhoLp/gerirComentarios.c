@@ -18,7 +18,7 @@
 void imprimirComentarios(Comentario comentario) {
 
     printf("\tNome utilizador: %s\n", comentario.nomeUtilizador);
-    printf("\tEmail: %s\n", comentario.email);
+    printf("\tEmail: %s@%s.com\n", comentario.enderecoEmail.nomeUtilizador, comentario.enderecoEmail.dominio);
     printf("\tNome empresa: %s\n", comentario.nomeEmpresa);
     printf("\tTitulo: %s\n", comentario.titulo);
     printf("\tTexto: %s\n", comentario.texto);
@@ -35,7 +35,8 @@ void imprimirComentarios(Comentario comentario) {
 void apagarDadosComentarios(Comentario *comentario) {
 
     strcpy(comentario->nomeUtilizador, "");
-    strcpy(comentario->email, "");
+    strcpy(comentario->enderecoEmail.nomeUtilizador, "");
+    strcpy(comentario->enderecoEmail.dominio, "");
     strcpy(comentario->nomeEmpresa, "");
     strcpy(comentario->titulo, "");
     strcpy(comentario->texto, "");

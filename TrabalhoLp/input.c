@@ -68,6 +68,24 @@ char obterChar(char *msg) {
     return valor;
 }
 
+int validarEmail(char *email) {
+    if (strlen(email) == 0) {
+        return 0;
+    }
+
+    if (email[0] == '.' || email[strlen(email) - 1] == '.') {
+        return 0;
+    }
+
+    for (int i = 0; email[i] != '\0'; i++) {
+        if (email[i] == '.' && email[i + 1] == '.') {
+            return 0;
+        }
+    }
+
+    return 1; 
+}
+
 void lerString(char *string, unsigned int tamanho, char *msg) {
     printf(msg);
     if (fgets(string, tamanho, stdin) != NULL) {
@@ -80,58 +98,14 @@ void lerString(char *string, unsigned int tamanho, char *msg) {
     }
 }
 
-int validarEmail( const char * email ){
-    char usuario[256], site[256], dominio[256];
+void lerEmail(char *email, unsigned int tamanho, char *msg) {
+    do {
+        lerString(email, tamanho, msg);
 
-    if( sscanf( email, "%[^@ \t\n]@%[^. \t\n].%3[^ \t\n]", usuario, site, dominio ) != 3 )
-        return 0;
-
-    return 1;
-}
-
-/** @param dia = recebe o dia inserido
-* @param mes = recebe o mes inserido
-* @param ano = recebe o ano inserido
-* @param anoAtual = recebe o ano atual para verificar se a data é válida
-* @return 
-*/
-
-int verificaData(int dia, int mes, int ano) {
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
-
-    cleanInputBuffer();
-
-    // Verifica se a data fornecida é posterior ou igual à data atual
-    if (ano > (tm.tm_year + 1900) || (ano == (tm.tm_year + 1900) && mes > (tm.tm_mon + 1))
-        || (ano == (tm.tm_year + 1900) && mes == (tm.tm_mon + 1) && dia >= tm.tm_mday)) {
-        if (ano >= (tm.tm_year + 1900) && ano <= 9999) {
-            if (mes >= 1 && mes <= 12) {
-                if ((dia >= 1 && dia <= 31) && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)) {
-                    return 1;
-                }
-                else if ((dia >= 1 && dia <= 30) && (mes == 4 || mes == 6 || mes == 9 || mes == 11)) {
-                    return 1;
-                }
-                else if ((dia >= 1 && dia <= 28) && (mes == 2)) {
-                    return 1;
-                }
-                else if (dia == 29 && mes == 2 && (ano % 400 == 0 || (ano % 4 == 0 && ano % 100 != 0))) {
-                    return 1;
-                }
-                else {
-                    return 0;
-                }
-            }
-            else {
-                return 0;
-            }
+        if (!validarEmail(email)) {
+            printf(VALOR_INVALIDO);
+        } else {
+            break;
         }
-        else {
-            return 0;
-        }
-    }
-    else {
-        return 0;
-    }
+    } while (1);
 }

@@ -399,7 +399,8 @@ int registarComentario(Comentarios *comentarios, Empresas *empresas) {
     if (procurarEmpresaNome(*empresas, nomeEmpresa) == 1 && empresas->empresa[indiceEmpresa].estado == 1) {
         if(procurarComentario(*comentarios, titulo) == 0){
             lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
-            lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
+            lerEmail(comentarios->comentario[comentarios->contador].enderecoEmail.nomeUtilizador, MAX_NOME_UTILIZADOR_EMAIL, MSG_OBTER_NOME_UTILIZADOR_EMAIL);
+            lerEmail(comentarios->comentario[comentarios->contador].enderecoEmail.dominio, MAX_DOMINIO, MSG_OBTER_DOMINIO);
             strcpy(comentarios->comentario[comentarios->contador].nomeEmpresa, nomeEmpresa);
             strcpy(comentarios->comentario[comentarios->contador].titulo, titulo);
             lerString(comentarios->comentario[comentarios->contador].texto, MAX_COMENTARIO, MSG_OBTER_TEXTO);
