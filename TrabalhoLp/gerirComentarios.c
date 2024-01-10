@@ -145,8 +145,6 @@ void libertarComentarios(Comentarios *comentarios) {
 
 }
 
-
-
 /**
  * @brief Esta função atualiza os dados de uma empresa
  * 
@@ -170,8 +168,6 @@ void expandirComentarios(Comentarios *comentarios) {
         comentarios->comentario = temp;
     }
 }
-
-
 
 /**
  * @brief Esta função lista os comentários existentes
