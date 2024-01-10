@@ -443,18 +443,21 @@ void classificarEmpresa(Empresas *empresas) {
 
             if (classificacao >= 0 && classificacao <= 5) {
                 empresas->empresa[i].classificacoes[empresas->empresa[i].numClassificacoes] = classificacao;
-                empresas->empresa[i].numClassificacoes++;
+                empresas->empresa[i].numClassificacoes ++;
                 puts(CLASSIFICACAO_REGISTADA);
             } else {
                 puts(CLASSIFICACAO_INVALIDA);
             }
-        }
+            return;
+        } 
     }
+    puts("Empresa nao encontrada");
 }
 
-void relatorioClassificacoes(Empresas *empresas) {
+void relatorioClassificacoes(Empresas *empresas){
 
     float medias[empresas->contador];
+    char nomeEmpresas[empresas->contador][MAX_NOME_EMPRESA];
 
     //Fazer a media
     for (int i = 0; i < empresas->contador; i++) {
@@ -462,7 +465,7 @@ void relatorioClassificacoes(Empresas *empresas) {
         int totalClassificacoes = 0;
 
 
-        for (int j = 0; j < empresas->empresa[i].numClassificacoes; j++) {
+        for(int j = 0; j <empresas->empresa[i].numClassificacoes; j++){
             soma += empresas->empresa[i].classificacoes[j];
             totalClassificacoes++;
         }
@@ -472,6 +475,7 @@ void relatorioClassificacoes(Empresas *empresas) {
         } else {
             medias[i] = -1;
         }
+        strcpy(nomeEmpresas[i], empresas->empresa[i].nomeEmpresa);
     }
 
     //ordenar array ordem decrescente
@@ -479,14 +483,21 @@ void relatorioClassificacoes(Empresas *empresas) {
         for (int j = 0; j < empresas->contador - i - 1; j++) {
             if (medias[j] < medias[j + 1]) {
                 float temp = medias[j];
-                medias[j] = medias[j + 1];
-                medias[j + 1] = temp;
+                medias[j] = medias[j+1];
+                medias[j + 1] = temp; 
+
+                char nomeTemp[MAX_NOME_EMPRESA];
+                strcpy(nomeTemp, nomeEmpresas[j]);
+                strcpy(nomeEmpresas[j], nomeEmpresas[j+1]);
+                strcpy(nomeEmpresas[j+1], nomeTemp);
             }
         }
     }
     //Imprimir a percentagem
-    printf("Empresas ordenadas por média de classificações:\n");
+    printf("Empresas ordenadas por média de classificações:\n\n");
     for (int i = 0; i < empresas->contador; i++) {
-        printf("Empresa %d: %.2f\n", i + 1, medias[i]);
+        printf("Empresa %s:\n",nomeEmpresas[i]);
+        printf("  Media: %.2f\n",medias[i]);
+        printf("  Numero de classificacoes: %d\n\n", empresas->empresa[i].numClassificacoes);
     }
 }
