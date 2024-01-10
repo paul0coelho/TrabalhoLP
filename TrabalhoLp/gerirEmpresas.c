@@ -394,9 +394,7 @@ int registarComentario(Comentarios *comentarios, Empresas *empresas) {
     lerString(nomeEmpresa, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
     lerString(titulo, MAX_TITULO, MSG_OBTER_TITULO_COMENT);
 
-    int indiceEmpresa = obterPosicaoNomeEmpresa(*empresas, nomeEmpresa);
-
-    if (procurarComentario(*comentarios, titulo) == 0 && procurarEmpresaNome(*empresas, nomeEmpresa) == 1 && empresas->empresa[indiceEmpresa].estado == 1) {
+    if (procurarComentario(*comentarios, titulo) == 0 && procurarEmpresaNome(*empresas, nomeEmpresa) == 1) {
 
         lerString(comentarios->comentario[comentarios->contador].nomeUtilizador, MAX_NOME_UTILIZADOR, MSG_OBTER_NOME_UTILIZADOR);
         lerString(comentarios->comentario[comentarios->contador].email, MAX_EMAIL, MSG_OBTER_EMAIL);
