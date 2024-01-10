@@ -7,7 +7,6 @@
       <itemPath>funcoes.h</itemPath>
       <itemPath>gerirComentarios.h</itemPath>
       <itemPath>gerirEmpresas.h</itemPath>
-      <itemPath>gerirRamosAtividade.h</itemPath>
       <itemPath>input.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -57,8 +56,6 @@
       </item>
       <item path="gerirRamosAtividade.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="gerirRamosAtividade.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="input.h" ex="false" tool="3" flavor2="0">
@@ -97,8 +94,6 @@
       <item path="gerirEmpresas.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="gerirRamosAtividade.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="gerirRamosAtividade.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>
