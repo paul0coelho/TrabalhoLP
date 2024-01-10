@@ -88,7 +88,7 @@ int procurarComentarioNomeEmpresa(Comentarios comentarios, char nomeEmpresa[]) {
  */
 int obterPosicaoComentario(char titulo[], Comentarios comentarios) {
     for (int i = 0; i < comentarios.contador; i++) {
-        if (strcmp(comentarios.comentario[i].titulo, titulo)) {
+        if (strcmp(comentarios.comentario[i].titulo, titulo) == 0) {
             return i;
         }
     }
