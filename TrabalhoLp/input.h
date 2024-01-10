@@ -22,5 +22,9 @@ char obterChar(char *msg);
 
 void lerString(char *string, unsigned int tamanho, char *msg);
 
+int validarEmail(char *email);
+
+void lerEmail(char *email, unsigned int tamanho, char *msg);
+
 #endif /* INPUT_H */
 
