@@ -192,8 +192,8 @@ int registarEmpresa(Empresas *empresas, RamosAtividade *ramosAtividade) {
 
         lerString(empresas->empresa[empresas->contador].rua, MAX_RUA, MSG_OBTER_RUA);
         lerString(empresas->empresa[empresas->contador].localidade, MAX_LOCALIDADE, MSG_OBTER_LOCALIDADE);
-        empresas->empresa[empresas->contador].codigoPostal.prefixo = obterInt(MIN_COD_POSTAL_PREFIXO, MIN_COD_POSTAL_PREFIXO, MSG_OBTER_COD_POSTAL_PREFIXO);
-        empresas->empresa[empresas->contador].codigoPostal.sufixo = obterInt(MIN_COD_POSTAL_SUFIXO, MIN_COD_POSTAL_SUFIXO, MSG_OBTER_COD_POSTAL_SUFIXO);
+        empresas->empresa[empresas->contador].codigoPostal.prefixo = obterInt(MIN_COD_POSTAL_PREFIXO, MAX_COD_POSTAL_PREFIXO, MSG_OBTER_COD_POSTAL_PREFIXO);
+        empresas->empresa[empresas->contador].codigoPostal.sufixo = obterInt(MIN_COD_POSTAL_SUFIXO, MAX_COD_POSTAL_SUFIXO, MSG_OBTER_COD_POSTAL_SUFIXO);
         empresas->empresa[empresas->contador].estado = 1;
 
         return empresas->contador++;
