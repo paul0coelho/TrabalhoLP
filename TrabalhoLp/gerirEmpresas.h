@@ -50,6 +50,7 @@
 #define EMPRESA_LISTA_CHEIA  "\n------ NÃO É POSSÍVEL INSERIR OUTRA EMPRESA ------\n\n"
 #define EMPRESA_LISTA_VAZIA  "\n------ LISTA DE EMPRESAS VAZIA ------\n\n"
 #define EMPRESAS_ENCONTRADAS "\n------ LISTA DE EMPRESAS ENCONTRADAS ------\n\n"
+#define EMPRESA_NAO_ENCONTRADA   "\n------ EMPRESA NÃO ENCONTRADA ------\n\n"
 
 #define MSG_OBTER_NOME_EMPRESA "\nInsira o nome da empresa:"
 #define MAX_NOME_EMPRESA 40

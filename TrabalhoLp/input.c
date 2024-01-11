@@ -22,32 +22,6 @@ int obterInt(int minValor, int maxValor, char *msg) {
     return valor;
 }
 
-
-long int obterLongInt(long int minValor,long int maxValor, char *msg) {
-    long int valor;
-    printf(msg);
-    while (scanf("%d", &valor) != 1 || valor < minValor || valor > maxValor) {
-        puts(VALOR_INVALIDO);
-        cleanInputBuffer();
-        printf(msg);
-    }
-    cleanInputBuffer();
-    return valor;
-}
-
-
-float obterFloat(float minValor, float maxValor, char *msg) {
-    float valor;
-    printf(msg);
-    while (scanf("%f", &valor) != 1 || valor < minValor || valor > maxValor) {
-        puts(VALOR_INVALIDO);
-        cleanInputBuffer();
-        printf(msg);
-    }
-    cleanInputBuffer();
-    return valor;
-}
-
 double obterDouble(double minValor, double maxValor, char *msg) {
     double valor;
     printf(msg);
@@ -56,14 +30,6 @@ double obterDouble(double minValor, double maxValor, char *msg) {
         cleanInputBuffer();
         printf(msg);
     }
-    cleanInputBuffer();
-    return valor;
-}
-
-char obterChar(char *msg) {
-    char valor;
-    printf(msg);
-    valor = getchar();
     cleanInputBuffer();
     return valor;
 }

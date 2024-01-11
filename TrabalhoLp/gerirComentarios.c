@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cFiles/file.c to edit this template
- */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,9 +23,9 @@ void imprimirComentarios(Comentario comentario) {
 }
 
 /**
- * @brief Esta função "apaga" o registo das empresas
+ * @brief Esta função "apaga" o registo dos comentários
  * 
- * @param empresa apontador para a struct Empresa
+ * @param comentario apontador para a struct Comentario
  */
 
 void apagarDadosComentarios(Comentario *comentario) {
@@ -43,11 +39,11 @@ void apagarDadosComentarios(Comentario *comentario) {
 }
 
 /**
- * @brief Esta função verifica se a empresa existe nos registos das Empresas
+ * @brief Esta função verifica se o comentário existe nos registos dos Comentarios
  * 
- * @param empresas struct Empresas
- * @param NIF
- * @return 1 se a empresa existir e 0 se ela não existir
+ * @param comentarios struct Comentarios
+ * @param titulo
+ * @return 1 se o comentario existir e 0 se ele não existir
  */
 
 int procurarComentario(Comentarios comentarios, char titulo[]) {
@@ -62,11 +58,11 @@ int procurarComentario(Comentarios comentarios, char titulo[]) {
 }
 
 /**
- * @brief Esta função verifica se a empresa existe nos registos das Empresas
+ * @brief Esta função verifica se existem comentarios com o nome da empresa dada nos registos dos Comentarios
  * 
- * @param empresas struct Empresas
- * @param NIF
- * @return 1 se a empresa existir e 0 se ela não existir
+ * @param comentarios struct Comentarios
+ * @param nomeEmpresa
+ * @return 1 se existir e 0 se não existir
  */
 
 int procurarComentarioNomeEmpresa(Comentarios comentarios, char nomeEmpresa[]) {
@@ -81,11 +77,11 @@ int procurarComentarioNomeEmpresa(Comentarios comentarios, char nomeEmpresa[]) {
 }
 
 /**
- * @brief Procura se uma empresa existe, caso se confirme retorna a posição no registo Empresas, se não existir retorna -1
+ * @brief Procura se um comentário existe, caso se confirme retorna a posição no registo Comentarios, se não existir retorna -1
  * 
- * @param NIF
- * @param empresas struct Empresas
- * @return i se a empresa existir, -1 caso não exista
+ * @param titulo
+ * @param comentarios struct Comentarios
+ * @return i se o comentário existir, -1 caso não exista
  */
 int obterPosicaoComentario(char titulo[], Comentarios comentarios) {
     for (int i = 0; i < comentarios.contador; i++) {
@@ -138,7 +134,7 @@ void carregarComentarios(Comentarios *comentarios, char *ficheiro) {
 /**
  * @brief Esta função desaloca a memória alocada 
  * 
- * @param empresas apontador para a struct Empresas
+ * @param comentarios apontador para a struct Comentarios
  */
 void libertarComentarios(Comentarios *comentarios) {
 
@@ -147,9 +143,9 @@ void libertarComentarios(Comentarios *comentarios) {
 }
 
 /**
- * @brief Esta função atualiza os dados de uma empresa
+ * @brief Esta função atualiza os dados de um comentário
  * 
- * @param empresa apontador para a struct Empresa
+ * @param comentario apontador para a struct Comentario
  */
 void editarComentario(Comentario *comentario) {
 
@@ -192,7 +188,7 @@ void listarComentarios(Comentarios comentarios) {
  * @brief Esta função guarda todas as alterações que o usuário tenha feito aos comentários existentes e armazena-as no ficheiro comentarios.bin
  * 
  * @param comentarios apontador para a struct Comentarios
- * @param ficheiro apontador para o ficheiro binário no qual serão guardados os dados referentes aos comentários
+ * @param ficheiro apontador para o ficheiro binário no qual serão guardados os dados referentes aos comentarios
  */
 void guardarComentarios(Comentarios *comentarios, char *ficheiro) {
     int i;
@@ -212,12 +208,9 @@ void guardarComentarios(Comentarios *comentarios, char *ficheiro) {
 }
 
 /**
- * @brief Verifica se o ID do mercado inserido pelo utilizador existe
- * Se o vendedor tiver comissões associadas o seu estado muda para Inativo(0) (removerMercado())
- * Caso contrário o registo do mercado é removido e o contador descresce por 1
+ * @brief Remove um comentário com base no título fornecido.
  * 
- * @param mercados apontador para a struct Mercados
- * @param comissões apontador para a struct Comissoes
+ * @param comentarios Apontador para a struct Comentarios
  */
 void removerComentario(Comentarios *comentarios) {
     int i, numero;

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cFiles/file.c to edit this template
- */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -149,10 +146,10 @@ void editarRamoAtividade(RamoAtividade *ramoAtividade) {
 }
 
 /**
- * @brief Verifica se o código do vendedor inserido pelo utilizador existe
- * Se sim chama-se a função editarVendedor() que vai mudar os dados do vendedor
+ * @brief Verifica se o nome inserido pelo utilizador existe
+ * Se sim chama-se a função editarRamoAtividade() que vai mudar os dados do ramo de atividade
  * 
- * @param vendedores apontador para a struct Vendedores
+ * @param ramosAtividade apontador para a struct RamosAtividade
  */
 void editarRamosAtividade(RamosAtividade *ramosAtividade) {
     char nome[MAX_RAMO];
@@ -246,21 +243,21 @@ void guardarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro) {
 }
 
 /**
- * @brief Esta função atualiza o estado do mercado para "Inativo"
+ * @brief Esta função atualiza o estado do ramo para "Inativo"
  * 
- * @param mercado apontador para a struct Mercado
+ * @param ramoAtividade apontador para a struct RamoAtividade
  */
 void removerRamoAtividade(RamoAtividade *ramoAtividade) {
     ramoAtividade->estado = 0;
 }
 
 /**
- * @brief Verifica se o ID do mercado inserido pelo utilizador existe
- * Se o vendedor tiver comissões associadas o seu estado muda para Inativo(0) (removerMercado())
- * Caso contrário o registo do mercado é removido e o contador descresce por 1
+ * @brief Verifica se o nome do ramo inserido pelo utilizador existe
+ * Se o ramo tiver associado a alguma empresa o seu estado muda para Inativo(0) (removerRamoAtividade())
+ * Caso contrário o registo do ramo é removido e o contador descresce por 1
  * 
- * @param mercados apontador para a struct Mercados
- * @param comissões apontador para a struct Comissoes
+ * @param ramosAtividade apontador para a struct RamosAtividade
+ * @param empresas apontador para a struct Empresas
  */
 void removerRamosAtividade(RamosAtividade *ramosAtividade, Empresas *empresas) {
     int i, numero;

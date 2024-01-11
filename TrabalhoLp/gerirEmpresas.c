@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -216,10 +217,10 @@ void editarEmpresa(Empresa *empresa) {
 }
 
 /**
- * @brief Verifica se o código do vendedor inserido pelo utilizador existe
- * Se sim chama-se a função editarVendedor() que vai mudar os dados do vendedor
+ * @brief Verifica se o NIF da empresa inserido pelo utilizador existe
+ * Se sim chama-se a função editarEmpresa() que vai mudar os dados da empresa
  * 
- * @param vendedores apontador para a struct Vendedores
+ * @param empresas apontador para a struct Empresas
  */
 void editarEmpresas(Empresas *empresas) {
     int NIF = obterPosicaoEmpresa(obterInt(MIN_NIF_EMPRESA, MAX_NIF_EMPRESA, MSG_OBTER_NIF_EMPRESA), *empresas);
@@ -308,6 +309,12 @@ void guardarEmpresas(Empresas *empresas, char *ficheiro) {
     fclose(fp);
 }
 
+/**
+ * @brief Pesquisa empresas com base em critérios como nome, localidade ou ramo de atividade.
+ *        Imprime as informações da empresa encontrada ou exibe uma mensagem de critérios inválidos.
+ * 
+ * @param empresas Apontador para a struct Empresas
+ */
 void pesquisarEmpresas(Empresas *empresas) {
 
     char nome[MAX_NOME_EMPRESA];
@@ -341,22 +348,23 @@ void pesquisarEmpresas(Empresas *empresas) {
 }
 
 /**
- * @brief Esta função atualiza o estado do mercado para "Inativo"
+ * @brief Esta função atualiza o estado da empresa para "Inativo"
  * 
- * @param mercado apontador para a struct Mercado
+ * @param empresa apontador para a struct Empresa
  */
 void removerEmpresa(Empresa *empresa) {
     empresa->estado = 0;
 }
 
 /**
- * @brief Verifica se o ID do mercado inserido pelo utilizador existe
- * Se o vendedor tiver comissões associadas o seu estado muda para Inativo(0) (removerMercado())
- * Caso contrário o registo do mercado é removido e o contador descresce por 1
+ * @brief Verifica se o Nif da empresa inserido pelo utilizador existe
+ * Se a empresa tiver comentários associados o seu estado muda para Inativo(0) (removerEmpresa())
+ * Caso contrário o registo da empresa é removido e o contador descresce por 1
  * 
- * @param mercados apontador para a struct Mercados
- * @param comissões apontador para a struct Comissoes
+ * @param empresas apontador para a struct Empresas
+ * @param comentarios apontador para a struct Comentarios
  */
+
 
 void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
     int i, NIF, numero;
@@ -382,11 +390,12 @@ void removerEmpresas(Empresas *empresas, Comentarios *comentarios) {
 }
 
 /**
- * @brief Cria um novo NIF de Empresa
- * Insere um novo registo em Empresas e o contador aumenta por 1
+ * @brief Regista um novo comentário associado a uma empresa.
+ *        Verifica se a empresa e o comentário já existem antes de registar.
  * 
- * @param empresas apontador para struct Empresas
- * @return -1 se o NIF já existir ou retorna o número do contador se os dados foram registados com sucesso
+ * @param comentarios Apontador para a struct Comentarios 
+ * @param empresas Apontador para a struct Empresas
+ * @return -1 se o nome da empresa não existe ou o título do comentário já existe, caso contrário, retorna o número do contador.
  */
 int registarComentario(Comentarios *comentarios, Empresas *empresas) {
     char titulo[MAX_TITULO], nomeEmpresa[MAX_NOME_EMPRESA];
@@ -439,6 +448,11 @@ void registarComentarios(Comentarios *comentarios, Empresas *empresas) {
     }
 }
 
+/**
+ * @brief Classifica uma empresa com uma pontuação de 0 a 5.
+ * 
+ * @param empresas Apontador para a struct Empresas
+ */
 void classificarEmpresa(Empresas *empresas) {
     char nome[MAX_NOME_EMPRESA];
     lerString(nome, MAX_NOME_EMPRESA, MSG_OBTER_NOME_EMPRESA);
@@ -456,9 +470,15 @@ void classificarEmpresa(Empresas *empresas) {
             return;
         } 
     }
-    puts("Empresa nao encontrada");
+    puts(EMPRESA_NAO_ENCONTRADA);
 }
 
+/**
+ * @brief Gera um relatório de médias de classificações para cada empresa, ordenado por média em ordem decrescente.
+ *        Imprime o nome da empresa, a média de classificações e o número total de classificações.
+ * 
+ * @param empresas Apontador para a struct Empresas 
+ */
 void relatorioClassificacoes(Empresas *empresas){
 
     float medias[empresas->contador];
