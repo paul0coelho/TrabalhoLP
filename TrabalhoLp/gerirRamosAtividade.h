@@ -1,14 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cFiles/file.h to edit this template
- */
-
-/* 
- * File:   gerirRamosAtividade.h
- * Author: paulo
- *
- * Created on 19 de dezembro de 2023, 14:40
- */
+/**
+* @file gerirRamosAtividade.h
+* @author 8220195 e 8220196
+* @date 19-12-2023
+*
+*
+* @brief Header file que contém macros e estruturas para a gestão de ramos de atividade.
+*
+*/
 
 #ifndef RAMOSATIVIDADE_H
 #define RAMOSATIVIDADE_H
