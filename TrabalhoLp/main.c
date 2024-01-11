@@ -240,6 +240,7 @@ void menuUser(Empresas *empresas, Comentarios *comentarios) {
                 break;
             case 2:
                 classificarEmpresa(empresas);
+                guardarEmpresas(empresas, EMP_DB_FILE);
                 puts("");
                 break;
             case 3:
