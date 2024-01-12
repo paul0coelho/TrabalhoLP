@@ -1,11 +1,12 @@
 /**
- * Esta biblioteca serve para verificar as variáveis introduzidas pelo utilizador
- * 
- * @param minValor
- * @param maxValor
- * @param msg
- * @return 
- */
+* @file input.h
+* @author 8220195 e 8220196 e ESTG
+* @date 19-12-2024
+*
+*
+* @brief Header file que declarações de funções utilizadas para obter inputs do utilizador.
+*
+*/
 
 #ifndef INPUT_H
 #define INPUT_H

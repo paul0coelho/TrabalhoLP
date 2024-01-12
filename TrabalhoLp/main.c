@@ -1,15 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cFiles/main.c to edit this template
- */
-
-/* 
- * File:   main.c
- * Author: paulo
- *
- * Created on 1 de dezembro de 2023, 15:41
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "funcoes.h"

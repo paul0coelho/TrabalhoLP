@@ -527,6 +527,14 @@ void relatorioClassificacoes(Empresas *empresas){
     }
 }
 
+/**
+ * @brief Gera um relatório das empresas agrupadas por ramo de atividade.
+ *        Para cada ramo de atividade, imprime o nome do ramo, o número total de empresas no ramo
+ *        e a lista de nomes das empresas pertencentes a esse ramo.
+ * 
+ * @param empresas Apontador para a struct Empresas
+ * @param ramosAtividade Apontador para a struct RamosAtividade
+ */
 void relatorioEmpresasPorRamo(Empresas *empresas, RamosAtividade *ramosAtividade) {
     
     
