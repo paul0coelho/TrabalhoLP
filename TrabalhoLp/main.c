@@ -144,13 +144,12 @@ void menuRelatorios(Empresas *empresas, RamosAtividade *ramosAtividade, Comentar
     int opcao;
 
     do {
-        printf("\t-------- RELATORIOS --------\n");
+        printf("-------- RELATORIOS --------\n");
         printf("\t1 - Visualizar relatório de classificacoes\n");
-        printf("\t2 - Visualizar relatório de\n");
-        printf("\t3 - Visualizar relatório de\n");
+        printf("\t2 - Visualizar relatório empresas por ramo\n");
         printf("\t0 - Sair\n");
 
-        opcao = obterInt(0, 3, "\nOpção: ");
+        opcao = obterInt(0, 2, "\nOpção: ");
         switch (opcao) {
             case 0:
                 puts("");
@@ -160,11 +159,7 @@ void menuRelatorios(Empresas *empresas, RamosAtividade *ramosAtividade, Comentar
                 puts("");
                 break;
             case 2:
-                //relatorioClassificacoes2()
-                puts("");
-                break;
-            case 3:
-                //relatorioClassificacoes3()
+                relatorioEmpresasPorRamo(empresas,ramosAtividade);
                 puts("");
                 break;
             default:

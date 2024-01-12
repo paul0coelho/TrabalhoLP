@@ -526,3 +526,29 @@ void relatorioClassificacoes(Empresas *empresas){
         printf("  Numero de classificacoes: %d\n\n", empresas->empresa[i].numClassificacoes);
     }
 }
+
+void relatorioEmpresasPorRamo(Empresas *empresas, RamosAtividade *ramosAtividade) {
+    
+    
+    for (int i = 0; i < ramosAtividade->contador; i++) {
+        printf("------ Ramo de atividade: %s --------\n", ramosAtividade->ramoAtividade[i].nome);
+        printf("Empresas:");
+        
+        int countEmpresas = 0;  // Variável para contar as empresas no ramo
+        
+        for (int j = 0; j < empresas->contador; j++) {
+            if (strcmp(ramosAtividade->ramoAtividade[i].nome, empresas->empresa[j].ramoAtividade) == 0) {
+                countEmpresas++;
+            }
+        }
+        printf(" %d\n", countEmpresas);
+        
+        for (int j = 0; j < empresas->contador; j++) {
+            if (strcmp(ramosAtividade->ramoAtividade[i].nome, empresas->empresa[j].ramoAtividade) == 0) {
+                printf(" %s\n", empresas->empresa[j].nomeEmpresa);
+            }
+        }
+        
+        printf("\n\n");
+    }
+}
