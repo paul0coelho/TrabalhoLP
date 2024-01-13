@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['carregarcomentarios_0',['carregarComentarios',['../gerir_comentarios_8c.html#ab478c486c843ccd5bdd794cbc8ffeac5',1,'carregarComentarios(Comentarios *comentarios, char *ficheiro):&#160;gerirComentarios.c'],['../gerir_comentarios_8h.html#ab478c486c843ccd5bdd794cbc8ffeac5',1,'carregarComentarios(Comentarios *comentarios, char *ficheiro):&#160;gerirComentarios.c']]],
+  ['carregarempresas_1',['carregarEmpresas',['../gerir_empresas_8c.html#a952aafcb39115487af3dae6fb061ea38',1,'carregarEmpresas(Empresas *empresas, char *ficheiro):&#160;gerirEmpresas.c'],['../gerir_empresas_8h.html#a952aafcb39115487af3dae6fb061ea38',1,'carregarEmpresas(Empresas *empresas, char *ficheiro):&#160;gerirEmpresas.c']]],
+  ['carregarramosatividade_2',['carregarRamosAtividade',['../gerir_empresas_8h.html#a4545956e4bc44b4f5bd835d8e90b2f3b',1,'carregarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro):&#160;gerirRamosAtividade.c'],['../gerir_ramos_atividade_8c.html#a4545956e4bc44b4f5bd835d8e90b2f3b',1,'carregarRamosAtividade(RamosAtividade *ramosAtividade, char *ficheiro):&#160;gerirRamosAtividade.c']]],
+  ['classificacao_5finvalida_3',['CLASSIFICACAO_INVALIDA',['../gerir_empresas_8h.html#a6a7d95d4edbf4cbd6e2964effbb021c0',1,'gerirEmpresas.h']]],
+  ['classificacao_5fregistada_4',['CLASSIFICACAO_REGISTADA',['../gerir_empresas_8h.html#ac713a2c2dae9c2187dcde762cea6a927',1,'gerirEmpresas.h']]],
+  ['classificacoes_5',['classificacoes',['../struct_empresa.html#ab34c53e097c8184bf63cf96cc0f79f6f',1,'Empresa']]],
+  ['classificarempresa_6',['classificarEmpresa',['../gerir_empresas_8c.html#a417cf65d5ca901378ac80748b9edd66e',1,'classificarEmpresa(Empresas *empresas):&#160;gerirEmpresas.c'],['../gerir_empresas_8h.html#a417cf65d5ca901378ac80748b9edd66e',1,'classificarEmpresa(Empresas *empresas):&#160;gerirEmpresas.c']]],
+  ['cleaninputbuffer_7',['cleanInputBuffer',['../input_8c.html#a11ac4d3ec555747d95fee8ae7aa18b5d',1,'input.c']]],
+  ['codigopostal_8',['CodigoPostal',['../struct_codigo_postal.html',1,'']]],
+  ['codigopostal_9',['codigoPostal',['../struct_empresa.html#a26362cf432f2ba3a756477cf6f80cc2f',1,'Empresa']]],
+  ['comentario_10',['Comentario',['../struct_comentario.html',1,'']]],
+  ['comentario_11',['comentario',['../struct_comentarios.html#af1fce7d3b248bc79a96670415330696b',1,'Comentarios']]],
+  ['comentario_5feditado_5fsucesso_12',['COMENTARIO_EDITADO_SUCESSO',['../gerir_comentarios_8h.html#ad559de2bbc43bee77c60b10ff7db4e60',1,'gerirComentarios.h']]],
+  ['comentario_5fexiste_13',['COMENTARIO_EXISTE',['../gerir_comentarios_8h.html#ab7a7b27d8ccdc878346f228fa80567ff',1,'gerirComentarios.h']]],
+  ['comentario_5flista_5fcheia_14',['COMENTARIO_LISTA_CHEIA',['../gerir_comentarios_8h.html#a7bb6f42adf9d0493174116a70724f4a1',1,'gerirComentarios.h']]],
+  ['comentario_5flista_5fvazia_15',['COMENTARIO_LISTA_VAZIA',['../gerir_comentarios_8h.html#a62d637ffcd3c2d255ad56cb83542d2a3',1,'gerirComentarios.h']]],
+  ['comentario_5fnao_5fexiste_16',['COMENTARIO_NAO_EXISTE',['../gerir_comentarios_8h.html#ab0e0b882c7a0c38fcded9d10090276d3',1,'gerirComentarios.h']]],
+  ['comentario_5fregistado_5fsucesso_17',['COMENTARIO_REGISTADO_SUCESSO',['../gerir_comentarios_8h.html#a4275f6f5a401bfcd23e147d6520a0505',1,'gerirComentarios.h']]],
+  ['comentario_5fremovido_5fsucesso_18',['COMENTARIO_REMOVIDO_SUCESSO',['../gerir_comentarios_8h.html#a35d20e7747eff4534ca7925841f9e968',1,'gerirComentarios.h']]],
+  ['comentarios_19',['Comentarios',['../struct_comentarios.html',1,'']]],
+  ['comentarios_5ftam_5finicial_20',['COMENTARIOS_TAM_INICIAL',['../gerir_comentarios_8h.html#abcacc37f7b57df0bdf53e9915a08dfca',1,'gerirComentarios.h']]],
+  ['coments_5fdb_5ffile_21',['COMENTS_DB_FILE',['../funcoes_8h.html#a900dbdea90daba1d3979e1bab90849e3',1,'funcoes.h']]],
+  ['contador_22',['contador',['../struct_comentarios.html#a2c6a3fb7cddd9bd7254692264962b5b3',1,'Comentarios::contador'],['../struct_ramos_atividade.html#a2c6a3fb7cddd9bd7254692264962b5b3',1,'RamosAtividade::contador'],['../struct_empresas.html#a2c6a3fb7cddd9bd7254692264962b5b3',1,'Empresas::contador']]],
+  ['criterios_5finvalidos_23',['CRITERIOS_INVALIDOS',['../gerir_empresas_8h.html#a63058178e2b4a49bbbd9bdbd29a59f64',1,'gerirEmpresas.h']]]
+];

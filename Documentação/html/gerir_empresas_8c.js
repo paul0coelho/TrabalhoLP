@@ -1,0 +1,26 @@
+var gerir_empresas_8c =
+[
+    [ "apagarDadosEmpresas", "gerir_empresas_8c.html#a1398d05a7715807850f9ecf09e57cde6", null ],
+    [ "carregarEmpresas", "gerir_empresas_8c.html#a952aafcb39115487af3dae6fb061ea38", null ],
+    [ "classificarEmpresa", "gerir_empresas_8c.html#a417cf65d5ca901378ac80748b9edd66e", null ],
+    [ "editarEmpresa", "gerir_empresas_8c.html#a61b3b9e36a886118e887128c558d5020", null ],
+    [ "editarEmpresas", "gerir_empresas_8c.html#afee14d55c339693bba625cee50040f4e", null ],
+    [ "expandirEmpresas", "gerir_empresas_8c.html#ad369fec2a7f0f32699953f54381cbb61", null ],
+    [ "guardarEmpresas", "gerir_empresas_8c.html#a8b1703bccdf9753ffc60e76715e40a76", null ],
+    [ "imprimirEmpresas", "gerir_empresas_8c.html#a1bd4b955a08380f4dc1ef68455bd9820", null ],
+    [ "libertarEmpresas", "gerir_empresas_8c.html#a00800a4474b589a1f18bf23ef3fce791", null ],
+    [ "listarEmpresas", "gerir_empresas_8c.html#a5b4ead1ea7e8a5b065805c3d8027dfd4", null ],
+    [ "obterPosicaoEmpresa", "gerir_empresas_8c.html#a2b68eec5b4770a59c3da759f3c431d46", null ],
+    [ "obterPosicaoNomeEmpresa", "gerir_empresas_8c.html#a164e5503464b64b8e57b7a7e90107f96", null ],
+    [ "pesquisarEmpresas", "gerir_empresas_8c.html#a434fd62bb94b1eb60a16901b6f4cf455", null ],
+    [ "procurarEmpresa", "gerir_empresas_8c.html#a2d9cea0e55b38b98cbd9c28763e80585", null ],
+    [ "procurarEmpresaNome", "gerir_empresas_8c.html#aa04a34dc17e64799f23e6d871f5a9f20", null ],
+    [ "registarComentario", "gerir_empresas_8c.html#a0cc949d6fecde2e4eabcb86292c939be", null ],
+    [ "registarComentarios", "gerir_empresas_8c.html#a50911e40cb51cd8d3ddb3c26b1856126", null ],
+    [ "registarEmpresa", "gerir_empresas_8c.html#aacf7a16b19365047e785161c4e9e573d", null ],
+    [ "registarEmpresas", "gerir_empresas_8c.html#afd57567577c52ed545cae1a12dee6c1c", null ],
+    [ "relatorioClassificacoes", "gerir_empresas_8c.html#aa036aa0458e13e9239a940dec378bb6d", null ],
+    [ "relatorioEmpresasPorRamo", "gerir_empresas_8c.html#a64da26e6c9e572b0acbb87863aa45ec9", null ],
+    [ "removerEmpresa", "gerir_empresas_8c.html#a04c623493f62f509ca164d18c4c23a9e", null ],
+    [ "removerEmpresas", "gerir_empresas_8c.html#abfceaad53b5f67779bbd219e245a90ec", null ]
+];
